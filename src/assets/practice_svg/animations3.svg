@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="10" cy="10" r="5" >
+    <animate attributeName="cx" begin="0" dur="2s" to="85" repeatCount="1" fill="freeze"/>
+  </circle>
+  <circle cx="10" cy="20" r="5" >
+    <animate attributeName="cx" begin="click" dur="2s" to="85" repeatCount="1" fill="remove"/>
+  </circle>
+  <circle cx="10" cy="30" r="5" >
+    <animate attributeName="cx" begin="0" dur="3s" values="10;90;10" keyTimes="0;0.25;1" repeatCount="indefinite" />
+  </circle>
+  <circle cx="10" cy="40" r="5" >
+    <animate id="firstAni" attributeName="cx" begin="0" dur="3s" values="10;90;10" keyTimes="0;0.25;1" repeatCount="1" />
+    <animate attributeName="cy" begin="firstAni.end" dur="3s" values="40;90;40" keyTimes="0;0.25;1" repeatCount="1" />
+  </circle>
+</svg>

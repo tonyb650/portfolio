@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<svg width="500" height="500" viewBox="-125 -125 250 250" xmlns="http://www.w3.org/2000/svg">
+<!-- <svg viewPort="0 0 500 500" viewBox="125 0 500 500"> -->
+
+  <rect x="125" y="125" width="125" height="125" fill="red"  />
+  <rect x="250" y="125" width="125" height="125" fill="purple"  />
+  <rect x="125" y="250" width="125" height="125" fill="blue"  />
+  <rect x="250" y="250" width="125" height="125" fill="green"  />
+
+  <circle cx="0" cy="0" r="125" fill="orange" />
+  <circle cx="500" cy="500" r="125" fill="maroon" />
+
+</svg>

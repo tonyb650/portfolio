@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<svg width="500" height="500" viewBox="0 0 100 100" font-size="6" xmlns="http://www.w3.org/2000/svg">
+  <text x="5" y="80" font-size="3" fill="red">
+    Have text follow a path using the textPath element
+  </text>
+
+<path id="curvefortext" d="M0 10 q12.5 -12, 25 0, t25 0 t25 0, t25 0" fill="none" stroke-width="0.1" stroke="black" />
+<path id="showstartofarc" d="M10 50 h 1 1 " stroke-width="0.25" stroke="black" />
+<text x="5" y="3" font-size="3" fill="red">
+  <textPath href="#curvefortext" baseline-shift="1" letter-spacing="0.25" startOffset="2%">
+    Have text follow a path using the textPath element
+  </textPath>
+</text>
+
+<path id="circlefortext" d="M10 50 A20 20 0 1 1 50 50 A20 20 0 1 1 10 50" fill="none" stroke-width="0.1" stroke="black" />
+<text x="5" y="3" font-size="3" fill="red" transform="rotate(-52, 30, 50)">
+  <textPath href="#circlefortext">
+    Have text follow a path using the textPath element
+  </textPath>
+</text>
+
+</svg>

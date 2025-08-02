@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1.5777994in"
+   height="0.78531897in"
+   viewBox="0 0 40.076106 19.947102"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="full3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.1286756"
+     inkscape:cx="165.56526"
+     inkscape:cy="98.124585"
+     inkscape:window-width="1904"
+     inkscape:window-height="1011"
+     inkscape:window-x="1928"
+     inkscape:window-y="33"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-15.54066,-4.5867441)">
+    <path
+       d="m 27.46758,7.7328051 h -9.338964 v 5.2089839 h 8.024316 v 2.182813 h -8.024316 v 8.89248 H 15.672952 V 5.5499926 H 27.46758 Z M 41.569045,24.017082 h -2.331641 v -1.53789 q -1.178223,0.930175 -2.257226,1.426269 -1.079004,0.496094 -2.38125,0.496094 -2.182813,0 -3.398243,-1.327051 -1.215429,-1.339453 -1.215429,-3.91914 v -8.9917 h 2.33164 v 7.887891 q 0,1.054199 0.09922,1.810742 0.09922,0.744141 0.42168,1.277442 0.334863,0.545703 0.868164,0.793749 0.533301,0.248047 1.550293,0.248047 0.905371,0 1.971972,-0.471289 1.079004,-0.471289 2.00918,-1.203027 V 10.163664 h 2.331641 z m 6.945311,0 H 46.182715 V 4.7190356 h 2.331641 z m 6.970119,0 H 53.152834 V 4.7190356 h 2.331641 z"
+       id="text1"
+       style="font-size:25.4px;fill:none;stroke:#000000;stroke-width:0.264583"
+       aria-label="Full" />
+    <text
+       xml:space="preserve"
+       style="font-size:25.4px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.264583"
+       x="24.081947"
+       y="13.550867"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="stroke-width:0.264583"></tspan></text>
+  </g>
+</svg>

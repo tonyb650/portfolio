@@ -1,9 +1,10 @@
-import Bio from "./components/playground_components/Bio";
-import Svg from "./components/playground_components/Svg";
-import Welcome from "./components/playground_components/Welcome";
+import Welcome from "@/components/playground_components/Welcome"
 
-function App() {
-  return (
+
+
+const PlaygroundPage = () => {
+
+return (
     <>
     {/* <div className="h-8 bg-[#D9B310]" >Gold Leaf</div> */}
     <div className="h-8 bg-[#0B3C5d]" >Prussian Blue</div>
@@ -19,16 +20,16 @@ function App() {
     <div className="bg-[#1D2731] text-gray-200">
     <div className="h-8 bg-[#EAC67A]" >Warm Yellow</div>
 
-        <Svg/>
+        {/* <Svg/> */}
         {/* <Laptop/> */}
         <Welcome/>
-        <Bio/>
+        {/* <Bio/> */}
         {/* <Circle/> */}
 
 
       </div>
     </>
-  );
+  )
 }
 
-export default App;
+export default PlaygroundPage

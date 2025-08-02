@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <text id="text">
+      SVG Transforms
+    </text>
+  </defs>
+  <use href="#text" x="40" y="10" fill="dodgerblue" font-size="8" text-anchor="middle"/>
+  <use href="#text" x="40" y="-12" fill="goldenrod" font-size="8" text-anchor="middle" transform="scale(1, -1)"/>
+
+
+</svg>

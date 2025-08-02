@@ -1,1 +1,108 @@
 @import "tailwindcss";
+/******************/
+/* Welcome Section */
+/******************/
+
+/* #welcome_path {
+  fill: none;
+  stroke-width: 2.5;
+  transition: fill 1s ease-in-out;
+  stroke-dasharray: 9541.93;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s ease;
+  animation: draw_welcome 10s ease-in-out forwards;
+}
+
+@keyframes draw_welcome {
+  0% {
+    stroke-dashoffset: 9541.93;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+ */
+
+
+
+
+/******************/
+/* Circle Section */
+/******************/
+
+/* svg {
+  color: dodgerblue;
+} */
+
+circle {
+  /* --strokeLength: 1538.7584228515625;
+  --strokeIncrement: 4;
+  --strokeCalc: 0; */
+  stroke-dasharray: 1538.7584228515625;
+  stroke-dashoffset: 0;
+  /* 
+  stroke-dashoffset: var(--strokeCalc); 
+  stroke-dasharray: var(--strokeLength);
+  */
+  transition: stroke-dashoffset 1s ease;
+  animation: draw_circle 3s ease-in-out forwards;
+}
+
+@keyframes draw_circle {
+  0% {
+    stroke-dashoffset: 1538.7584228515625;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/******************/
+/* Full Section */
+/******************/
+
+#full {
+
+
+      width: 200px;
+      height: 200px;
+      overflow: visible;
+    }
+
+    .move-in {
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100vw); /* start off-screen left */
+      }
+      to {
+        transform: translateX(0); /* final position */
+      }
+    }
+
+
+
+  /* OLD Welcome sction */
+  
+  .welcome_path_1 {
+    /* stroke: blue; */
+    fill: pink;
+    transition: fill 1s ease-in-out;
+    stroke-dasharray: 9541.93;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s ease;
+    animation: draw2 3s ease-in-out forwards;
+  }
+
+
+  @keyframes draw2 {
+    0% {
+      stroke-dashoffset: 7156.7584228515625;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
