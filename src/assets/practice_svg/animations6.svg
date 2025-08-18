@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <rect width="20" height="20" x="20" y="20" transform-origin="30 30">
-    <animateTransform attributeName="transform" type="scale" values="0;2;0" dur="5s" repeatCount="indefinite" calcMode="">
-      
-    </animateTransform>
-  </rect>
-</svg>
