@@ -23,7 +23,7 @@ const RootLayout = () => {
     >
       <div className="flex flex-col ">
         <header className="z-10 bg-[#438496] shadow-sm sticky top-0">
-          <div className="max-w-7xl mx-auto border">
+          <div className="max-w-7xl mx-auto">
             <Navbar />
           </div>
         </header>

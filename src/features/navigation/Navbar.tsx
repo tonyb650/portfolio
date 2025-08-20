@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { RefContext, type RefContextType } from "@/layouts/RootLayout";
 import MenuButton from "./MenuButton";
+import MountainIcon from "@/components/MountainIcon";
 
 const Navbar = () => {
 
@@ -11,67 +12,36 @@ const Navbar = () => {
   const robotRef = refs?.robotRef || null
   const contactRef = refs?.contactRef || null
 
+  const sections = [
+    {title: "About", sectionRef: aboutRef},
+    {title: "Projects", sectionRef: projectsRef},
+    {title: "Robot Me", sectionRef: robotRef},
+    {title: "Contact", sectionRef: contactRef},
+  ]
 
   return (
     <div className="flex justify-between sm:justify-center md:justify-between items-center h-12 px-4">
       <div className="sm:hidden md:inline">
-        <Logo />
+        <MountainIcon height={36} width={36} className="rounded-md shadow shadow-black/40"/>
       </div>
       <ul className="hidden sm:flex sm:gap-10 text-white text-2xl ">
-        <li>
-          <button
-            onClick={() => {
-              // const element = document.getElementById("about");
-              aboutRef?.current?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            About
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => {
-              // const element = document.getElementById("projects");
-              projectsRef?.current?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Projects
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => {
-              // const element = document.getElementById("robot");
-              robotRef?.current?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Robot Me
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => {
-              // const element = document.getElementById("contact");
-              // console.log("firing")
-              // console.log(contactRef)
-              contactRef?.current?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Contact
-          </button>
-        </li>
+        { sections.map( ({title, sectionRef}, i) => (
+
+          <li key={i}>
+            <button
+              className="cursor-pointer"
+              onClick={() => {
+                sectionRef?.current?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {title}
+            </button>
+          </li>
+        ))}
       </ul>
       <MenuButton className="sm:hidden" />
     </div>
   );
 };
 
-export default Navbar;
-
-const Logo = () => {
-  return (
-    <div className="text-[#B37D4E] font-black text-2xl shadow bg-white rounded-lg py-1 font-stretch-ultra-condensed">
-      {"<T/B>"}
-    </div>
-  );
-};
+export default Navbar

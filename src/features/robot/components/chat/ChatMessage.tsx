@@ -1,26 +1,70 @@
-// import UserIcon from '@assets/icons/user-avatar.svg'
-// import Logo from '@assets/artwork-svg/logo-icon.svg'
-// import checkIcon from "/src/assets/icons/check.svg"
-// import clipboardIcon from "/src/assets/icons/clipboard.svg"
 import { useState, type PropsWithChildren } from 'react'
 import Markdown from "markdown-to-jsx"
 import { FaCheck, FaClipboard, FaUser } from 'react-icons/fa'
+import ChatTypingIndicator from './ChatTypingIndicator'
+import MountainIcon from '@/components/MountainIcon'
 
 export type ChatMessage = {
   message: string,
-  sender: string,
-  direction: string,
-  position: string
+  type: "outgoing" | "incoming" | "working",
 }
 
-type Props = {
+type ChatMessageProps = {
   message: ChatMessage,
-  className?: string,
 }
+
+const ChatMessage = ({message}: ChatMessageProps) => {
+
+  return (
+    <>
+      {message.type==='working' && <WorkingMessage/> }
+      {message.type==='incoming' && <ModelMessage message={message.message}/> }
+      {message.type === 'outgoing' && <UserMessage message={message.message}/> }
+    </>
+  )
+}
+
+export default ChatMessage
+
+
+
+
+const WorkingMessage = () => {
+  return (
+    <div className="flex py-2 mr-10 text-left  items-end">
+      <MountainIcon height={30} width={30} className="mx-1 bg-white rounded-full p-0.5" />
+      <div
+        className={` bg-white rounded-r-xl rounded-t-xl self-center break-words`}
+      >
+        <div className="px-3 py-2 whitespace-normal">
+          <ChatTypingIndicator isTyping={true} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
+
+const UserMessage = ({ message }: { message: string }) => {
+  return (
+    <div className="flex justify-end items-end">
+      <div className={`bg-[#B37D4E] self-center rounded-t-xl rounded-l-xl justify-end break-words`}>
+        <div className="px-3 py-2 text-left whitespace-normal">{message}</div>
+      </div>
+      <FaUser size={30} className='bg-[#438496] rounded-full p-0.5 mx-1' />
+    </div>
+  );
+};
+
+
+
+
 
 type CopyIconState = "hide" | "clip" | "check"// Three states hide = don't show, clip = show clipboard Icon, check = show check Icon
 
-const ChatMessage = ({message, className: addedClasses=""}: Props) => {
+const ModelMessage = ({message}: {message: string}) => {
   const [copyIcon, setCopyIcon] = useState<CopyIconState>("hide") 
 
   const copyToClipboard = async (text: string | undefined) => {
@@ -33,67 +77,60 @@ const ChatMessage = ({message, className: addedClasses=""}: Props) => {
   }
 
   return (
-    <>
-      {message.direction==='incoming'
-      ?
-      <div className='flex py-2 mr-10 text-left'>
-                  <FaUser className='w-[42px] h-[42px]'/>
-        {/* <img src={Logo} alt="Wedding WordSmith Logo" className='w-[42px] h-[42px] self-end'/> */}
-        <div className={`${addedClasses} bg-white rounded-r-xl self-center break-words`}
-          onMouseEnter={() => setCopyIcon("clip")}
-          onMouseLeave={() => setCopyIcon("hide")}
-        >
-          {
-            copyIcon !== "hide" &&
-            <div className="absolute bg-white p-1 shadow-sm rounded-md">
-              { 
-                copyIcon === "clip" ? 
-                <FaClipboard 
-                  className="hover:cursor-pointer"
-                  onClick={() => copyToClipboard(message.message)}
-                />
-                : 
+      <div className='flex py-2 mr-10 text-left  items-end'>
+        <MountainIcon height={30} width={30} className="mx-1 bg-white rounded-full p-0.5" />
+        
 
-                <FaCheck/> 
-              }
-            </div>
-          }
-          <div className='px-3 py-2 whitespace-normal'>
-          <Markdown
-            options={{
-              overrides: {
-                h1: {component: H1,},
-                h2: {component: H2,},
-                h3: {component: H3,},
-                h4: {component: H4,},
-                ol: {component: OL,},
-                ul: {component: UL,},
-                li: {component: LI,},
-                p: {component: P,},
-              },
-            }}
+          <div className={` bg-white rounded-r-xl rounded-t-xl self-center break-words`}
+            onMouseEnter={() => setCopyIcon("clip")}
+            onMouseLeave={() => setCopyIcon("hide")}
           >
-            {message.message.replace(/ {2,}/g, ' ')}
-          </Markdown>
-          </div>
-        </div>   
-      </div>
-      :
-        <div className='flex justify-end ml-10'>
-          <div className={`${addedClasses} bg-wwsPurple self-center rounded-l-xl justify-end break-words`}>
-            <div className='px-3 py-2 text-left whitespace-normal'>
-              {message.message}
+            {
+              copyIcon !== "hide" &&
+              <div className="absolute bg-white p-1 shadow-sm rounded-md">
+                { 
+                  copyIcon === "clip" ? 
+                  <FaClipboard 
+                    className="hover:cursor-pointer"
+                    onClick={() => copyToClipboard(message)}
+                  />
+                  : 
+                  <FaCheck/> 
+                }
+              </div>
+            }
+            <div className='px-3 py-2 whitespace-normal'>
+            <Markdown
+              options={{
+                overrides: {
+                  h1: {component: H1,},
+                  h2: {component: H2,},
+                  h3: {component: H3,},
+                  h4: {component: H4,},
+                  ol: {component: OL,},
+                  ul: {component: UL,},
+                  li: {component: LI,},
+                  p: {component: P,},
+                },
+              }}
+            >
+              {message.replace(/ {2,}/g, ' ')}
+            </Markdown>
             </div>
-          </div>
-          <FaUser className='w-[42px] h-[42px]'/>
-        </div>
-      }
-    </>
+          </div>   
+        
+      </div>
   )
 }
 
-export default ChatMessage
 
+
+
+
+
+/************************/
+/** Markdown Overrides **/
+/************************/
 
 const H1 = ( {children}: PropsWithChildren) => {
   return <h1 className="text-2xl font-bold my-1">{children}</h1>;

@@ -1,11 +1,12 @@
-import ColorPalette from "@/components/ColorPalette";
 import Arc from "@/components/Arc";
-import Typewriter from "@/features/about/Typewriter";
+import ColorPalette from "@/components/ColorPalette";
 import Welcome from "@/features/about/Welcome";
-import { useContext } from "react";
-import { RefContext, type RefContextType } from "@/layouts/RootLayout";
-import RobotMe from "@/features/robot/components/RobotMe";
+import WelcomeText from "@/features/about/WelcomeText";
+import ContactForm from "@/features/contact/ContactForm";
 import ProjectGrid from "@/features/projects/components/ProjectGrid";
+import RobotMe from "@/features/robot/components/RobotMe";
+import { RefContext, type RefContextType } from "@/layouts/RootLayout";
+import { useContext } from "react";
 
 const PortfolioPage = () => {
   const refs = useContext<RefContextType | null>(RefContext);
@@ -25,6 +26,9 @@ const PortfolioPage = () => {
       <div className="bg-[#0B3C5d]">
         <RobotMe ref={robotRef} />
         <Contact ref={contactRef} />
+        <footer className="text-center text-white p-1">
+          tonybrierly.com
+        </footer>
       </div>
     </>
   );
@@ -32,16 +36,6 @@ const PortfolioPage = () => {
 
 export default PortfolioPage;
 
-const WelcomeText = () => {
-  return (
-    <div className="h-60 md:h-30">
-      <Typewriter
-        text= "My name is Tony Brierly, I'm a full stack software developer experienced in working closely with clients, web applications from rough concept to full implementation. Primarily proficiencies include React, Typescript and NodeJS."
-        delay={25}
-      />
-    </div>
-  );
-};
 
 const About = ({
   ref
@@ -52,8 +46,7 @@ const About = ({
     <div ref={ref} className="max-w-7xl mx-auto min-h-[90vh] md:min-h-[80vh]  flex">
       <div className="flex flex-col-reverse md:grid md:grid-cols-5 md:items-center  md:flex-auto">
         <div className="md:col-span-3   flex flex-auto items-start">
-          <div className="w-full space-y-8 md:space-y-0 px-4 md:px-0 ">
-
+          <div className="w-full space-y-8 md:space-y-0 pl-6  ">
             <Welcome className=""/>
             <WelcomeText />
           </div>
@@ -95,16 +88,9 @@ const Contact = ({
   ref: React.RefObject<HTMLDivElement | null> | null;
 }) => {
   return (
-    <div ref={ref} className="max-w-7xl mx-auto h-96">
-      contact section
+    <div ref={ref} className="max-w-7xl mx-auto ">
+      <ContactForm/>
       <ColorPalette />
     </div>
   );
-};
-
-
-/**
-
-
-
- */
+}

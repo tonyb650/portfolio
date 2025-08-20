@@ -1,21 +1,28 @@
-import ChatContainer from "@/features/robot/components/chat/ChatContainer";
+import { cn } from "@/utils/cn";
+import { useState } from "react";
+import Chat from "./chat/Chat";
+import AgentAnimation from "./AgentAnimation";
 
 const RobotMe = ({
   ref
 }: {
   ref: React.RefObject<HTMLDivElement | null> | null;
 }) => {
-  return (
-    <div ref={ref} className="max-w-7xl mx-auto h-dvh border py-12 px-5 grid grid-cols-4 gap-4">
-      <div className="border col-span-1">
-        Agentic Me
-      </div>
-      <div className="border col-span-3">
+  const [isWorking, setIsWorking] = useState(false)
 
-<ChatContainer/>
+  return (
+    <div
+      ref={ref}
+      className="max-w-7xl mx-auto h-dvh pt-14 pb-2 px-5 grid grid-cols-4 gap-4 "
+    >
+      <div className={cn(" col-span-1 flex justify-center items-start", {"bg-black/20": isWorking})}>
+        <AgentAnimation/>
+      </div>
+      <div className="col-span-3">
+        <Chat setIsWorking={setIsWorking}/>
       </div>
     </div>
   );
 };
 
-export default RobotMe
+export default RobotMe;
