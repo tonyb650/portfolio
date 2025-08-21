@@ -1,11 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "ES2020",       // Node 18+ supports this well
-    "module": "CommonJS",     // Vercel functions default to CJS
+    "target": "ES2020",
+    "module": "CommonJS",
     "lib": ["ES2020"],
-    //"outDir": "dist-api",     // optional, if you want to pre-build locally
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "types": ["@types/node", "@vercel/node"] // 👈 ensures typings are loaded
   },
   "include": ["api"]
 }
