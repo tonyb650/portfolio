@@ -9,9 +9,10 @@ const ENVIRONMENT = import.meta.env.VITE_ENVIRONMENT
 const homePath = ENVIRONMENT === "development" ? "/" : "/test"
 const testPath = ENVIRONMENT === "development" ? "/test" : "/"
 
-export const routes: RouteObject[] = [
+
+const testRoutes: RouteObject[] = [
   {
-    path: homePath,
+    path: "/",
     element: <RootLayout />,
     children: [
       {
@@ -22,8 +23,19 @@ export const routes: RouteObject[] = [
     ],
   },
   {
-    path: testPath,
+    path: "/test",
     element: <PreviewPage/>
   },
   { path: "*", element: <NotFoundPage /> },
 ]
+
+const placeholderRoutes: RouteObject[] = [
+  {
+    path: "/",
+    element: <PreviewPage/>
+  },
+  { path: "*", element: <NotFoundPage /> },
+
+]
+
+export const routes: RouteObject[] = ENVIRONMENT === "development" ? testRoutes : placeholderRoutes
