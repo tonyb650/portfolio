@@ -32,6 +32,17 @@ const placeholderRoutes: RouteObject[] = [
     path: "/",
     element: <PreviewPage/>
   },
+  {
+    path: "/test",
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        errorElement: <ErrorPage />,
+        element: <PortfolioPage/>,
+      }
+    ],
+  },
   { path: "*", element: <NotFoundPage /> },
 
 ]
