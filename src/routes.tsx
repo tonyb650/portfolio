@@ -6,8 +6,6 @@ import PortfolioPage from "./pages/PortfolioPage";
 import PreviewPage from "./pages/PreviewPage";
 
 const ENVIRONMENT = import.meta.env.VITE_ENVIRONMENT
-const homePath = ENVIRONMENT === "development" ? "/" : "/test"
-const testPath = ENVIRONMENT === "development" ? "/test" : "/"
 
 
 const testRoutes: RouteObject[] = [
