@@ -37,7 +37,7 @@ const placeholderRoutes: RouteObject[] = [
     element: <RootLayout />,
     children: [
       {
-        path: "/",
+        index: true,
         errorElement: <ErrorPage />,
         element: <PortfolioPage/>,
       }
