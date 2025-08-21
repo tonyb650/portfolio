@@ -7,6 +7,7 @@ import ProjectGrid from "@/features/projects/components/ProjectGrid";
 import RobotMe from "@/features/robot/components/RobotMe";
 import { RefContext, type RefContextType } from "@/layouts/RootLayout";
 import { useContext } from "react";
+import Laptop from '@/assets/about/hands_typing.png'
 
 const PortfolioPage = () => {
   const refs = useContext<RefContextType | null>(RefContext);
@@ -53,7 +54,7 @@ const About = ({
         </div>
         <div className="md:col-span-2 flex justify-center  flex-auto items-center  ">
           <img
-            src="/src/assets/hands_typing.png"
+            src={Laptop}
             width={200}
             className="bg-white rounded-2xl"
           />
@@ -88,7 +89,7 @@ const Contact = ({
   ref: React.RefObject<HTMLDivElement | null> | null;
 }) => {
   return (
-    <div ref={ref} className="max-w-7xl mx-auto ">
+    <div ref={ref} className="max-w-7xl mx-auto h-dvh pt-24 pb-2 px-5  gap-4 ">
       <ContactForm/>
       <ColorPalette />
     </div>
