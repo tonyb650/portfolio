@@ -1,4 +1,3 @@
-
 const ColorPalette = () => {
   return (
     <div className="w-96 space-y-1">
