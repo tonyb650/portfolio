@@ -9,12 +9,14 @@ type Props = {
 
 const ChatMessageList = ({ messages, className }: Props) => {
   return (
-    <div className={cn("overflow-y-auto h-full flex flex-col justify-end",className)}
-      style={{scrollbarColor: "#3498db #ecf0f1"}}
+    <div className={cn("flex flex-col-reverse h-full overflow-y-scroll", className)}
+      style={{scrollbarColor: "#0B3C5d #438496"}}
     >
-      {messages.map((message, i) => (
-        <ChatMessage key={i} message={message} />
-      ))}
+      <div>
+        {messages.map((message, i) => (
+          <ChatMessage key={i} message={message} />
+        ))}
+      </div>
     </div>
   );
 };

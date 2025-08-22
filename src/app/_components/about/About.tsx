@@ -2,6 +2,7 @@ import Laptop from '@/assets/about/hands_typing.png'
 import Welcome from './Welcome';
 import WelcomeText from './WelcomeText';
 import Image from 'next/image';
+import ColorPalette from '../ColorPalette';
 
 
 const About = ({
@@ -16,6 +17,7 @@ const About = ({
           <div className="w-full space-y-8 md:space-y-0 pl-6  ">
             <Welcome className=""/>
             <WelcomeText />
+            <ColorPalette/>
           </div>
         </div>
         <div className="md:col-span-2 flex justify-center  flex-auto items-center  ">

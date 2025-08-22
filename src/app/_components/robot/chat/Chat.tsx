@@ -9,11 +9,18 @@ const modelWelcomeMessage: ChatMessage = {
   message: "So, what questions do you have?",
   type: "incoming",
 }
+const userMessage: ChatMessage = {
+  message: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam voluptas atque tempora veritatis esse tenetur quo aliquam repellat inventore at?",
+  type: "outgoing",
+}
+
 
 const isWorkingMessage: ChatMessage = {
   message: "Typing",
   type: "working",
 }
+const long = [modelWelcomeMessage, userMessage, modelWelcomeMessage, userMessage, modelWelcomeMessage, userMessage, modelWelcomeMessage, userMessage, modelWelcomeMessage, userMessage, modelWelcomeMessage, userMessage, isWorkingMessage]
+const short = [ modelWelcomeMessage, userMessage, modelWelcomeMessage, userMessage, modelWelcomeMessage, userMessage, isWorkingMessage]
 
 
 const Chat = ({setIsWorking}: {setIsWorking: React.Dispatch<React.SetStateAction<boolean>>}) => {

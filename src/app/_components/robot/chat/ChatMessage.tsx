@@ -29,31 +29,16 @@ export default ChatMessage
 
 
 
-const WorkingMessage = () => {
-  return (
-    <div className="flex py-2 mr-10 text-left  items-end">
-      <MountainIcon size={30} className="mx-1 bg-white rounded-full p-0.5" />
-      <div
-        className={` bg-white rounded-r-xl rounded-t-xl self-center break-words`}
-      >
-        <div className="px-3 py-2 whitespace-normal">
-          <ChatTypingIndicator isTyping={true} />
-        </div>
-      </div>
-    </div>
-  );
-};
-
 
 
 
 const UserMessage = ({ message }: { message: string }) => {
   return (
     <div className="flex justify-end items-end">
-      <div className={`bg-[#B37D4E] self-center rounded-t-xl rounded-l-xl justify-end break-words`}>
+      <div className={`ml-14 bg-[#B37D4E] self-center rounded-t-xl rounded-l-xl justify-end break-words`}>
         <div className="px-3 py-2 text-left whitespace-normal">{message}</div>
       </div>
-      <FaUser size={30} className='bg-[#438496] rounded-full p-0.5 mx-1' />
+      <FaUser size={30} className='bg-[#438496] rounded-full p-0.5 mx-1 shrink-0' />
     </div>
   );
 };
@@ -77,47 +62,47 @@ const ModelMessage = ({message}: {message: string}) => {
   }
 
   return (
-      <div className='flex py-2 mr-10 text-left  items-end'>
-        <MountainIcon size={30} className="mx-1 bg-white rounded-full p-0.5" />
+      <div className='flex py-2 mr-14 text-left items-end'>
+        <MountainIcon size={30} className="mx-1 bg-white rounded-full p-0.5 shrink-0" />
         
 
-          <div className={` bg-white rounded-r-xl rounded-t-xl self-center break-words`}
-            onMouseEnter={() => setCopyIcon("clip")}
-            onMouseLeave={() => setCopyIcon("hide")}
-          >
-            {
-              copyIcon !== "hide" &&
-              <div className="absolute bg-white p-1 shadow-sm rounded-md">
-                { 
-                  copyIcon === "clip" ? 
-                  <FaClipboard 
-                    className="hover:cursor-pointer"
-                    onClick={() => copyToClipboard(message)}
-                  />
-                  : 
-                  <FaCheck/> 
-                }
-              </div>
-            }
-            <div className='px-3 py-2 whitespace-normal'>
-            <Markdown
-              options={{
-                overrides: {
-                  h1: {component: H1,},
-                  h2: {component: H2,},
-                  h3: {component: H3,},
-                  h4: {component: H4,},
-                  ol: {component: OL,},
-                  ul: {component: UL,},
-                  li: {component: LI,},
-                  p: {component: P,},
-                },
-              }}
-            >
-              {message.replace(/ {2,}/g, ' ')}
-            </Markdown>
+        <div className={` bg-white rounded-r-xl rounded-t-xl self-center break-words`}
+          onMouseEnter={() => setCopyIcon("clip")}
+          onMouseLeave={() => setCopyIcon("hide")}
+        >
+          {
+            copyIcon !== "hide" &&
+            <div className="absolute bg-white p-1 shadow-sm rounded-md">
+              { 
+                copyIcon === "clip" ? 
+                <FaClipboard 
+                  className="hover:cursor-pointer"
+                  onClick={() => copyToClipboard(message)}
+                />
+                : 
+                <FaCheck/> 
+              }
             </div>
-          </div>   
+          }
+          <div className='px-3 py-2 whitespace-normal'>
+          <Markdown
+            options={{
+              overrides: {
+                h1: {component: H1,},
+                h2: {component: H2,},
+                h3: {component: H3,},
+                h4: {component: H4,},
+                ol: {component: OL,},
+                ul: {component: UL,},
+                li: {component: LI,},
+                p: {component: P,},
+              },
+            }}
+          >
+            {message.replace(/ {2,}/g, ' ')}
+          </Markdown>
+          </div>
+        </div>   
         
       </div>
   )
@@ -170,3 +155,19 @@ const P = (  {children}: PropsWithChildren) => {
 // const PRE = (  {children}: PropsWithChildren) => {
 //   return <pre className="">{children}</pre>;
 // };
+
+
+const WorkingMessage = () => {
+  return (
+    <div className="flex py-2 mr-10 text-left items-end">
+      <MountainIcon size={30} className="mx-1 bg-white rounded-full p-0.5 shrink-0" />
+      <div
+        className={` bg-white rounded-r-xl rounded-t-xl self-center break-words`}
+      >
+        <div className="px-3 py-2 whitespace-normal">
+          <ChatTypingIndicator isTyping={true} />
+        </div>
+      </div>
+    </div>
+  );
+};
