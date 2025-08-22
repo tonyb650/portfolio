@@ -1,7 +1,12 @@
 "use client"
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext } from "react";
 import About from "./_components/about/About";
+import Projects from "./_components/projects/Projects";
+import RobotMe from "./_components/robot/RobotMe";
+import Contact from "./_components/contact/Contact";
+import Navbar from "./_components/nav/Navbar";
+import ScrollToTop from "./_components/ScrollToTop";
 
 export type RefContextType = {
   aboutRef: React.RefObject<HTMLDivElement | null>;
@@ -12,54 +17,44 @@ export type RefContextType = {
 
 export const RefContext = createContext<RefContextType | null>(null);
 
+import { useRef } from "react";
+
 export default function Home() {
-  const refs = useContext<RefContextType | null>(RefContext);
-
-  const aboutRef = refs?.aboutRef || null;
-  const projectsRef = refs?.projectsRef || null;
-  const robotRef = refs?.robotRef || null;
-  const contactRef = refs?.contactRef || null;
-
-
-
-
+  const aboutRef = useRef<HTMLDivElement | null>(null);
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+  const robotRef = useRef<HTMLDivElement | null>(null);
+  const contactRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <RefContext.Provider
-      value={null}
+      value={{ aboutRef, projectsRef, robotRef, contactRef }}
     >
-          <ScrollToTop />
+      <ScrollToTop />
       <div className="flex flex-col ">
-        {/* <header className="z-10 bg-[#438496] shadow-sm sticky top-0">
+        <header className="z-10 bg-[#438496] shadow-sm sticky top-0">
           <div className="max-w-7xl mx-auto">
             <Navbar />
           </div>
-        </header> */}
+        </header>
 
     
-      <div className="bg-[#0B3C5d]">
-        <About ref={aboutRef} />
-      </div>
+        <div className="bg-[#0B3C5d]">
+          <About ref={aboutRef} />
+        </div>
 
-      {/* <Projects ref={projectsRef} />
+        <Projects ref={projectsRef} />
 
-      <div className="bg-[#0B3C5d]">
-        <RobotMe ref={robotRef} />
-        <Contact ref={contactRef} /> */}
-        <footer className="text-center text-white p-1">
-          tonybrierly.com
-        </footer>
+        <div className="bg-[#0B3C5d]">
+          <RobotMe ref={robotRef} />
+        
+          <Contact ref={contactRef} />
+
+          <footer className="text-center text-white p-1">
+            tonybrierly.com
+          </footer>
+
+        </div>
       </div>
-      {/* </div> */}
     </RefContext.Provider>
   );
 }
-
-
-
-const ScrollToTop = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  return null;
-};

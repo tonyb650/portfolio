@@ -14,7 +14,7 @@ const Typewriter = ({ text, delay }: {text: string, delay: number}) => {
 
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, delay, text]);
+  }, [currentIndex, delay, text, words]);
 
   return <span className='text-white'>{currentText}</span>;
 };

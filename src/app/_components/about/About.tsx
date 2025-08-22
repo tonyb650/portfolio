@@ -1,6 +1,7 @@
 import Laptop from '@/assets/about/hands_typing.png'
 import Welcome from './Welcome';
 import WelcomeText from './WelcomeText';
+import Image from 'next/image';
 
 
 const About = ({
@@ -18,10 +19,11 @@ const About = ({
           </div>
         </div>
         <div className="md:col-span-2 flex justify-center  flex-auto items-center  ">
-          <img
+          <Image
             src={Laptop.src}
             width={200}
             className="bg-white rounded-2xl"
+            alt='Hands typing on a laptop'
           />
         </div>
       </div>
