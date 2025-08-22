@@ -1,71 +1,65 @@
 "use client"
 
-import { useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import About from "./_components/about/About";
+
+export type RefContextType = {
+  aboutRef: React.RefObject<HTMLDivElement | null>;
+  projectsRef: React.RefObject<HTMLDivElement | null>;
+  robotRef: React.RefObject<HTMLDivElement | null>;
+  contactRef: React.RefObject<HTMLDivElement | null>;
+};
+
+export const RefContext = createContext<RefContextType | null>(null);
 
 export default function Home() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<string | null>(null);
+  const refs = useContext<RefContextType | null>(RefContext);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const aboutRef = refs?.aboutRef || null;
+  const projectsRef = refs?.projectsRef || null;
+  const robotRef = refs?.robotRef || null;
+  const contactRef = refs?.contactRef || null;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus(null);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-      if (data.success) {
-        setStatus("Message sent!");
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        setStatus("Failed to send message.");
-      }
-    } catch {
-      setStatus("Failed to send message.");
-    }
-  };
+
+
+
 
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full max-w-md">
-        <div>Welcome</div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full bg-white/80 p-6 rounded shadow">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={form.name}
-            onChange={handleChange}
-            required
-            className="border p-2 rounded"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-            className="border p-2 rounded"
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            value={form.message}
-            onChange={handleChange}
-            required
-            className="border p-2 rounded min-h-[100px]"
-          />
-          <button type="submit" className="bg-blue-600 text-white rounded p-2 hover:bg-blue-700">Send</button>
-          {status && <div className="text-center text-sm mt-2">{status}</div>}
-        </form>
-      </main>
-    </div>
+    <RefContext.Provider
+      value={null}
+    >
+          <ScrollToTop />
+      <div className="flex flex-col ">
+        {/* <header className="z-10 bg-[#438496] shadow-sm sticky top-0">
+          <div className="max-w-7xl mx-auto">
+            <Navbar />
+          </div>
+        </header> */}
+
+    
+      <div className="bg-[#0B3C5d]">
+        <About ref={aboutRef} />
+      </div>
+
+      {/* <Projects ref={projectsRef} />
+
+      <div className="bg-[#0B3C5d]">
+        <RobotMe ref={robotRef} />
+        <Contact ref={contactRef} /> */}
+        <footer className="text-center text-white p-1">
+          tonybrierly.com
+        </footer>
+      </div>
+      {/* </div> */}
+    </RefContext.Provider>
   );
 }
+
+
+
+const ScrollToTop = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return null;
+};

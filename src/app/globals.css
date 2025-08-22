@@ -1,26 +1,152 @@
 @import "tailwindcss";
+/******************/
+/* Welcome Section */
+/******************/
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* #welcome_path {
+  fill: none;
+  stroke-width: 2.5;
+  transition: fill 1s ease-in-out;
+  stroke-dasharray: 9541.93;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s ease;
+  animation: draw_welcome 10s ease-in-out forwards;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes draw_welcome {
+  0% {
+    stroke-dashoffset: 9541.93;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+ */
+
+
+
+
+/******************/
+/* Circle Section */
+/******************/
+
+/* svg {
+  color: dodgerblue;
+} */
+
+circle {
+  /* --strokeLength: 1538.7584228515625;
+  --strokeIncrement: 4;
+  --strokeCalc: 0; */
+  stroke-dasharray: 1538.7584228515625;
+  stroke-dashoffset: 0;
+  /* 
+  stroke-dashoffset: var(--strokeCalc); 
+  stroke-dasharray: var(--strokeLength);
+  */
+  transition: stroke-dashoffset 1s ease;
+  animation: draw_circle 3s ease-in-out forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes draw_circle {
+  0% {
+    stroke-dashoffset: 1538.7584228515625;
+  }
+  100% {
+    stroke-dashoffset: 0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/******************/
+/* Full Section */
+/******************/
+
+#full {
+
+
+      width: 200px;
+      height: 200px;
+      overflow: visible;
+    }
+
+    .move-in {
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100vw); /* start off-screen left */
+      }
+      to {
+        transform: translateX(0); /* final position */
+      }
+    }
+
+
+
+  /* OLD Welcome section */
+  
+  .welcome_path_1 {
+    /* stroke: blue; */
+    fill: pink;
+    transition: fill 1s ease-in-out;
+    stroke-dasharray: 9541.93;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s ease;
+    animation: draw2 3s ease-in-out forwards;
+  }
+
+
+  @keyframes draw2 {
+    0% {
+      stroke-dashoffset: 7156.7584228515625;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+/**************************/
+/* Framer-Motion Tutorial */
+/**************************/
+
+.example-button {
+  background: rgb(86,1,245);
+  color: white;
+  font-size: 1.8rem;
+  border-radius: 0.4rem;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
 }
+
+/**************************/
+/* Bouncing Balls Typing  */
+/**************************/
+  .bouncer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 25px;
+    height: 12px;
+  }
+  .bouncer div {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    animation: bouncer 0.5s cubic-bezier(.19,.57,.3,.98) infinite alternate;
+  }
+  .bouncer div:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .bouncer div:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .bouncer div:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes bouncer {
+    from { transform: translateY(10px) }
+    to { transform: translateY(2px) }
+  }
