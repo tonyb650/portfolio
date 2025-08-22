@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@google/genai": "^1.15.0",
+    "@google/generative-ai": "^0.24.1",
     "@types/nodemailer": "^6.4.17",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",

@@ -1,22 +1,21 @@
 import { cn } from "@/utils/cn";
 
 type SVGProps = {
-  width?: number;
-  height?: number;
+  size?: number;
   className?: string;
 };
 const MountainIcon = ({
   className ,
-  width = 24,
-  height = 24
+
+  size=24
 }: SVGProps) => {
   return (
     <svg
       className={cn("bg-white rounded-sm text-[#0b3c5d]",className)}
       version="1.1"
       id="svg1"
-      width={height}
-      height={width}
+      width={size}
+      height={size}
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
     >

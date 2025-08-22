@@ -20,8 +20,10 @@ const About = ({
         </div>
         <div className="md:col-span-2 flex justify-center  flex-auto items-center  ">
           <Image
+            priority
             src={Laptop.src}
-            width={200}
+            width={250}
+            height={250}
             className="bg-white rounded-2xl"
             alt='Hands typing on a laptop'
           />

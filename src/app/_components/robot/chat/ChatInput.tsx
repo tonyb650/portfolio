@@ -3,16 +3,16 @@ import { useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 
 type ChatInputProps = {
-  onSend: (messageText: string) => void;
+  onUserMessage: (userMessage: string) => void;
   className?: string;
 };
 
-const ChatInput = ({ onSend, className }: ChatInputProps) => {
+const ChatInput = ({ onUserMessage, className }: ChatInputProps) => {
   const [chatInput, setChatInput] = useState<string>("")
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSend(chatInput.trim());
+    onUserMessage(chatInput.trim());
     setChatInput("");
   };
 

@@ -32,7 +32,7 @@ export default ChatMessage
 const WorkingMessage = () => {
   return (
     <div className="flex py-2 mr-10 text-left  items-end">
-      <MountainIcon height={30} width={30} className="mx-1 bg-white rounded-full p-0.5" />
+      <MountainIcon size={30} className="mx-1 bg-white rounded-full p-0.5" />
       <div
         className={` bg-white rounded-r-xl rounded-t-xl self-center break-words`}
       >
@@ -78,7 +78,7 @@ const ModelMessage = ({message}: {message: string}) => {
 
   return (
       <div className='flex py-2 mr-10 text-left  items-end'>
-        <MountainIcon height={30} width={30} className="mx-1 bg-white rounded-full p-0.5" />
+        <MountainIcon size={30} className="mx-1 bg-white rounded-full p-0.5" />
         
 
           <div className={` bg-white rounded-r-xl rounded-t-xl self-center break-words`}
