@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
-import pdf from "pdf-parse";
+// import pdf from "pdf-parse";
 import { promises as fs } from "fs";
 
 const OPENAI_API_KEY=process.env.OPENAI_API_KEY
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
 }
 
 const generateSystemPrompt = async (nameOfPerson: string, personalSummary: string): Promise<string> => {
-  const resume = await resumeText();
+  const resume = await resumeText2();
   let prompt = `You are acting as ${nameOfPerson}. You are answering questions on ${nameOfPerson}'s website, \
   particularly questions related to ${nameOfPerson}'s career, background, skills and experience. \
   Your responsibility is to represent ${nameOfPerson} for interactions on the website as faithfully as possible. \
@@ -62,9 +62,20 @@ const generateSystemPrompt = async (nameOfPerson: string, personalSummary: strin
 
 
 
-const resumeText = async (): Promise<string> => {
-  const pdfPath = path.join(process.cwd(), "public", "resume.pdf");
-  const dataBuffer = await fs.readFile(pdfPath);
-  const data = await pdf(dataBuffer);
-  return data.text;
+// const resumeText = async (): Promise<string> => {
+//   const pdfPath = path.join(process.cwd(), "public", "resume.pdf");
+//   const dataBuffer = await fs.readFile(pdfPath);
+//   const data = await pdf(dataBuffer);
+//   console.log(data.text)
+//   return data.text;
+// };
+
+const resumeText2 = async (): Promise<string> => {
+        const filePath = path.join(process.cwd(), 'public', 'resume.txt'); 
+
+        // Read the file content asynchronously
+        const fileContent = await fs.readFile(filePath, 'utf8');
+  console.log(fileContent)
+  return fileContent;
 };
+

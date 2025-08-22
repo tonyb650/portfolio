@@ -1,0 +1,53 @@
+SOFTWARE DEVELOPER 
+Bringing broad business expertise to build solutions and solve problems   
+TECHNICAL SKILLS:  
+LANGUAGES: Typescript • JS/ECMAScript • Python • Java 
+LIBRARIES AND FRAMEWORKS: React • NextJS • Node • Express • Flask • Jinja • Tailwind • Bootstrap 
+DATABASE: MongoDB • MySQL • PostgresSQL 
+TOOLS: Git/GitHub • Docker • Photoshop • Illustrator • Inkscape * Gimp 
+TECHNICAL PROJECTS 
+WEDDING WORDSMITH – Lead Developer • weddingwordsmith.com 
+An AI-powered app that helps wedding participants create eloquent speeches and exceptional wedding events. 
+●
+Iteratively developed frontend using React, Typescript and Tailwind to create a full-featured 
+commercial application, bringing the project from a rough concept to a refined user experience. 
+Features include custom UI for AI chat using Gemini LLM API and rich text editing via QuillJS. 
+●
+Built backend with Express server and MongoDB. Features include rate-limited API proxy server and 
+user registration emails using Nodemailer. 
+●
+Created custom token-based Auth. Used JWT to implement access/refresh token-based user auth. 
+GUIDED CYBERSECURITY ASSESSMENT – Freelance Developer • pocketsecurity.app 
+Web app that leads users through an interview to help decision makers understand their cybersecurity footprint. 
+●
+Custom-built React frontend with features such as debounced autosave, PDF generation, and a 
+graphical representation of user inputs. Utilized Zustand and ReactQuery for state management. 
+●
+Robust backend built using Node, Express, MongoDB and Zod for validating all requests. 
+PROFESSIONAL EXPERIENCE 
+POCKET SECURITY, INC.: 2024 - Present 
+Freelance Developer 
+●
+Conducted extensive interviews with the client to establish an initial plan for app development. 
+●
+Developed the app’s user interface to align with the brand’s position. 
+●
+Established timeline and milestones for development and shipped the project ahead of schedule and 
+with extra features. 
+FIFTH WAVE SOLUTIONS, LLC.: 2024 
+Lead Developer 
+●
+Coordinated efforts among developers to bring the web application to market. 
+●
+Maintained and prioritized backlog of features to be implemented.  
+●
+Iteratively improved application based on user feedback. 
+EDUCATION 
+COLORADO TECHNICAL / CODING DOJO: 2024 
+Full-Stack Training Program 
+Python, Flask, MySQL • React, Node, Express, MongoDB •Java, Spring, AWS Deployment 
+SAN JOSE STATE UNIVERSITY: 1995 
+Bachelor of Science in Business Administration, Concentration in Management
+ANTHONY BRIERLY
+anthonybrierly@gmail.com • (408) 712–7760 
+Mountain View, CA • LinkedIn • GitHub
