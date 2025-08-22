@@ -33,7 +33,8 @@ export async function POST(req: NextRequest) {
     });
 
     const data = await response.json();
-    const text = data.choices?.[0]?.message?.content ?? JSON.stringify(data);
+    console.log(OPENAI_API_KEY)
+    const text = data.choices?.[0]?.message?.content ?? JSON.stringify(OPENAI_API_KEY);
 
     return NextResponse.json({ text });
   } catch (error) {
