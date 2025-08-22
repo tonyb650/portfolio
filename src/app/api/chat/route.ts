@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
     });
 
     const data = await response.json();
-    const text = data.choices?.[0]?.message?.content ?? "No response";
+    const text = data.choices?.[0]?.message?.content ?? JSON.stringify(data);
 
     return NextResponse.json({ text });
   } catch (error) {
