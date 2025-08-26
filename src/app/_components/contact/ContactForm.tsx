@@ -31,7 +31,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="h-[calc(100dvh-200px)]  bg-[#438496] w-full rounded-2xl p-5 space-y-5 flex flex-col items-center">
+    <form onSubmit={handleSubmit} className="h-[calc(100dvh-200px)]  bg-radial-[50%_20%] from-primary to-accent w-full rounded-2xl p-5 space-y-5 flex flex-col items-center">
       {/* Honeypot hidden field */}
       <input type="text" name="company" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
 
@@ -68,7 +68,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className=" bg-[#0B3C5d] text-white px-8 py-2 rounded shadow-lg"
+        className=" bg-text text-back px-8 py-2 rounded shadow-lg"
       >
         {status === "loading" ? "Sending..." : "Send"}
       </button>

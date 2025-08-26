@@ -1,4 +1,50 @@
 @import "tailwindcss";
+/*
+https://www.webportfolios.dev/blog/best-color-palettes-for-developer-portfolio
+Brittany Chiang's Developer Portfolio Color Palette
+Background: #11172a (deep-dark blue)
+Text: #626c7d (medium gray)
+Accent: #599692 (pastel green)
+Highlighted Text: #dfe5ec (light gray)
+
+052a3d
+117192
+19c1e6
+614943 brown
+--color-secondary: #da9979;
+b3cdd7
+
+
+--color-back: #08171e;       // darkest
+--color-accent: #042b44;     // dark
+--color-primary: #096b90;    // mid
+--color-highlight: #71b7d5   //light
+--color-extra: #117192;      // light. ??
+--color-text: #a1ccdc;       //lightest (text)
+*/
+
+@theme {
+
+--color-back: #08171e;       
+--color-accent: #042b44;     
+--color-primary: #096b90;    
+--color-highlight: #71b7d5;  
+--color-extra: #117192;      
+--color-text: #a1ccdc;       
+  /*  --color-accent: #042b44;
+  --color-primary: #117192;
+  --color-secondary: #096b90;
+  --color-extra: #117192;
+  --color-text: #a1ccdc; */
+}
+
+/*
+Background: #E9C46A (Warm Gold)
+Primary: #264653 (Deep Teal)
+Secondary: #2A9D8F (Vibrant Green)
+Accent: #FFFFFF (White)
+*/
+
 /******************/
 /* Welcome Section */
 /******************/

@@ -1,41 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
-// import pdf from "pdf-parse";
 import { promises as fs } from "fs";
+import{ openai } from "@ai-sdk/openai"
+import { convertToModelMessages, streamText, UIMessage } from "ai"
 
-const OPENAI_API_KEY=process.env.OPENAI_API_KEY
+//! Pick up here:
+// Cosden: https://www.youtube.com/watch?v=y4IMq43KvRw
+//https://ai-sdk.dev/cookbook/next/markdown-chatbot-with-memoization
+// and
+//https://vercel.com/docs/vercel-firewall/vercel-waf/rate-limiting
+
+export const maxDuration = 30
 
 export async function POST(req: NextRequest) {
   try {
-    
-    const { userMessage } = await req.json();
+    const { messages }: { messages: UIMessage[] } = await req.json();
 
-    const systemPrompt = await generateSystemPrompt(
-        "Tony Brierly",
-        "My name is Tony Brierly. I'm a small business owner and web developer who loves solving problems and building things. I love snowboarding, cooking, traveling, hiking and carpentry."
-      )
+    const systemPrompt = await generateSystemPrompt({
+      nameOfPerson: "Tony Brierly",
+      summaryFile: "summary.txt",
+      resumeFile: "resume.txt"
+    })
 
-    const messages = [
-      { role: "system", content: systemPrompt},
-      { role: "user", content: userMessage }
-    ]
+    const result = streamText({
+      model: openai('gpt-4o-mini'),
+      messages: convertToModelMessages(messages),
+      system: systemPrompt,
+      onFinish: () => {}, //TODO enable submit button ?
+    })
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages
-      })
-    });
-
-    const data = await response.json();
-    const text = data.choices?.[0]?.message?.content ?? JSON.stringify(data);
-
-    return NextResponse.json({ text });
+    return result.toUIMessageStreamResponse();
   } catch (error) {
     console.log(error);
     return NextResponse.json(
@@ -45,8 +39,9 @@ export async function POST(req: NextRequest) {
   }
 }
 
-const generateSystemPrompt = async (nameOfPerson: string, personalSummary: string): Promise<string> => {
-  const resume = await resumeText2();
+const generateSystemPrompt = async ({nameOfPerson, summaryFile, resumeFile}: {nameOfPerson: string, summaryFile: string, resumeFile: string}): Promise<string> => {
+  const resume = await loadTextFile(resumeFile);
+  const summary = await loadTextFile(summaryFile);
   let prompt = `You are acting as ${nameOfPerson}. You are answering questions on ${nameOfPerson}'s website, \
   particularly questions related to ${nameOfPerson}'s career, background, skills and experience. \
   Your responsibility is to represent ${nameOfPerson} for interactions on the website as faithfully as possible. \
@@ -54,28 +49,36 @@ const generateSystemPrompt = async (nameOfPerson: string, personalSummary: strin
   Be professional and engaging, as if talking to a potential client or future employer who came across the website. \
   If you don't know the answer to any question, use your record_unknown_question tool to record the question that you couldn't answer, even if it's about something trivial or unrelated to career. \
   If the user is engaging in discussion, try to steer them towards getting in touch via email; ask for their email and record it using your record_user_details tool. `;
-  prompt += `\n\n## Summary:\n${personalSummary}\n\n## Resume:\n${resume}\n\n`;
+  prompt += `\n\n## Summary:\n${summary}\n\n## Resume:\n${resume}\n\n`;
   prompt += `With this context, please chat with the user, always staying in character as ${nameOfPerson}.`;
-
+  
   return prompt;
 };
 
-
-
-// const resumeText = async (): Promise<string> => {
-//   const pdfPath = path.join(process.cwd(), "public", "resume.pdf");
-//   const dataBuffer = await fs.readFile(pdfPath);
-//   const data = await pdf(dataBuffer);
-//   console.log(data.text)
-//   return data.text;
-// };
-
-const resumeText2 = async (): Promise<string> => {
-        const filePath = path.join(process.cwd(), 'public', 'resume.txt'); 
-
-        // Read the file content asynchronously
-        const fileContent = await fs.readFile(filePath, 'utf8');
-  console.log(fileContent)
+const loadTextFile = async (fileName: string): Promise<string> => {
+  const filePath = path.join(process.cwd(), 'public', fileName); 
+  const fileContent = await fs.readFile(filePath, 'utf8');
   return fileContent;
-};
+}
 
+// const messages = [
+//   { role: "system", content: systemPrompt},
+//   { role: "user", content: userMessage }
+// ]
+
+// const response = await fetch("https://api.openai.com/v1/chat/completions", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//     Authorization: `Bearer ${OPENAI_API_KEY}`
+//   },
+//   body: JSON.stringify({
+//     model: "gpt-4o-mini",
+//     messages
+//   })
+// });
+
+// const data = await response.json();
+// const text = data.choices?.[0]?.message?.content ?? JSON.stringify(data);
+
+// return NextResponse.json({ text });

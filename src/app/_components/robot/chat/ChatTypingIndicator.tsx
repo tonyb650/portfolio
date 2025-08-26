@@ -7,7 +7,7 @@ type Props = {
   className?: string,
 }
 
-const ChatTypingIndicator = ({isTyping, color = "black", content = "Agentic Me is typing", className}: Props) => {
+const ChatTypingIndicator = ({isTyping = true, color = "black", content = "", className}: Props) => {
 
   if(!isTyping) return null
 

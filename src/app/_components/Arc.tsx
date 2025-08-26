@@ -4,7 +4,7 @@ const Arc = ({ openDown = true, className }: { openDown?: boolean, className?: s
   return (
     <svg
       className={cn(className) }
-      fill="#0B3C5d"
+      fill={"currentColor"}
       viewBox="0 0 1440 79"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -13,9 +13,7 @@ const Arc = ({ openDown = true, className }: { openDown?: boolean, className?: s
       </defs>
       <use href="#arc" transform={ openDown ? "" : "translate(720 40) rotate(180) translate(-720 -40)" }/>
     </svg>
-
-
-);
+  );
 };
 
 export default Arc

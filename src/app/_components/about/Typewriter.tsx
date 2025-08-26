@@ -1,6 +1,14 @@
+import { cn } from '@/utils/cn';
 import { useEffect, useState } from 'react';
 
-const Typewriter = ({ text, delay }: {text: string, delay: number}) => {
+
+type TypewriterProps = {
+  text: string, 
+  delay?: number,
+  className?: string
+}
+
+const Typewriter = ({ text, delay=25, className }: TypewriterProps) => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const words = text.split(" ")
@@ -16,7 +24,7 @@ const Typewriter = ({ text, delay }: {text: string, delay: number}) => {
     }
   }, [currentIndex, delay, text, words]);
 
-  return <span className='text-white'>{currentText}</span>;
+  return <span className={cn(className)}>{currentText}</span>;
 };
 
 export default Typewriter;

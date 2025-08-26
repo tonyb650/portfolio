@@ -1,18 +1,24 @@
+'use client'
+
 import { cn } from "@/utils/cn";
+import { Chat, UIMessage, useChat } from "@ai-sdk/react";
+import { UIDataTypes, UITools } from "ai";
 import { useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
+import ChatTypingIndicator from "./ChatTypingIndicator";
 
 type ChatInputProps = {
-  onUserMessage: (userMessage: string) => void;
+  chat: Chat<UIMessage<unknown, UIDataTypes, UITools>>;
   className?: string;
 };
 
-const ChatInput = ({ onUserMessage, className }: ChatInputProps) => {
+const ChatInput = ({ chat, className }: ChatInputProps) => {
   const [chatInput, setChatInput] = useState<string>("")
+  const {sendMessage, status} = useChat({chat})
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit =  (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onUserMessage(chatInput.trim());
+    sendMessage({text: chatInput.trim()});
     setChatInput("");
   };
 
@@ -29,12 +35,12 @@ const ChatInput = ({ onUserMessage, className }: ChatInputProps) => {
     }
   };
 
-  const disabled = chatInput.trim() === "";
+  const disabled = chatInput.trim() === "" || status !== "ready"
 
   return (
     <form
       onSubmit={handleSubmit}
-      className={cn("w-auto bg-[#B37D4E] rounded-xl flex m-2", className)}
+      className={cn("w-auto bg-accent text-white rounded-xl flex m-2", className)}
     >
       <textarea
         autoFocus
@@ -51,13 +57,15 @@ const ChatInput = ({ onUserMessage, className }: ChatInputProps) => {
       <button
         disabled={disabled}
         className={cn(
-          "m-2 py-2 px-4 bg-black/20 rounded-full flex items-center gap-3",
+          "m-2 py-2 px-4 bg-black/20 rounded-full flex justify-between items-center gap-3 w-36",
           { "cursor-pointer": !disabled }
         )}
         type="submit"
       >
-        Submit
-        <FaPaperPlane />
+        <span className="w-full justify-items-center">
+          { status !== 'ready' ? <ChatTypingIndicator color="white"/> : "Submit"}
+        </span>
+        <FaPaperPlane size={16} className="shrink-0" />
       </button>
     </form>
   );

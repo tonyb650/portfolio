@@ -31,20 +31,20 @@ export default function Home() {
     >
       <ScrollToTop />
       <div className="flex flex-col ">
-        <header className="z-10 bg-[#438496] shadow-sm sticky top-0">
+        <header className="z-10 bg-radial-[at_75%_00%] from-accent to-primary shadow-sm sticky top-0">
           <div className="max-w-7xl mx-auto">
             <Navbar />
           </div>
         </header>
 
     
-        <div className="bg-[#0B3C5d]">
+        <div className="bg-back">
           <About ref={aboutRef} />
         </div>
 
         <Projects ref={projectsRef} />
 
-        <div className="bg-[#0B3C5d]">
+        <div className="bg-back">
           <RobotMe ref={robotRef} />
         
           <Contact ref={contactRef} />
@@ -58,3 +58,7 @@ export default function Home() {
     </RefContext.Provider>
   );
 }
+/**
+ * 
+ *     <main className="flex h-full flex-col items-center justify-center bg-radial-[at_50%_00%] from-sky-400 to-blue-800">
+ */
