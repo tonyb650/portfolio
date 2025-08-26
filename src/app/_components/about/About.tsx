@@ -1,8 +1,8 @@
-import Laptop from '@/assets/about/hands_typing_blue.png'
+import Laptop from '@/assets/about/hands_typing.png'
 import Welcome from './Welcome';
 import WelcomeText from './WelcomeText';
 import Image from 'next/image';
-import ColorPalette from '../ColorPalette';
+// import ColorPalette from '../ColorPalette';
 
 
 const About = ({
