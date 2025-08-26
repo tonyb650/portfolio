@@ -1,8 +1,13 @@
 import { useState } from "react";
 
+const INITIAL_FORM_DATA = {name: "", email: "", message: ""}
+
 export default function ContactForm() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+  // const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [isLoading, setLoading] = useState(false)
+  const [isSent, setSent] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -10,23 +15,27 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("loading");
-
+    
     try {
-      const res = await fetch("/api/contact", {
+      setLoading(true)
+      setSent(false)
+      setErrorMessage(null)
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
-      if (res.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setStatus("error");
+      if (!response.ok) {
+        throw new Error(response.statusText)
       }
-    } catch {
-      setStatus("error");
+      setFormData(INITIAL_FORM_DATA)
+      setSent(true)
+    } catch (err) {
+      const errorText = err instanceof Error ? err.message : "Encountered an error!"
+      setErrorMessage(errorText);
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -67,14 +76,14 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        disabled={status === "loading"}
+        disabled={isLoading}
         className=" bg-text text-back px-8 py-2 rounded shadow-lg"
       >
-        {status === "loading" ? "Sending..." : "Send"}
+        {isLoading ? "Sending..." : "Send"}
       </button>
 
-      {status === "success" && <p className="text-green-600">Message sent!</p>}
-      {status === "error" && <p className="text-red-600">Something went wrong. Try again.</p>}
+      {isSent && <p className="text-green-600">Message sent!</p>}
+      {errorMessage && <p className="text-red-600">{errorMessage}</p>}
     </form>
   );
 }
