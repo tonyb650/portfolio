@@ -1,4 +1,3 @@
-import ColorPalette from "../ColorPalette";
 import ContactForm from "./ContactForm";
 
 const Contact = ({

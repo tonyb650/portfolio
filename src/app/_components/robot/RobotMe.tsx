@@ -1,5 +1,4 @@
 import { cn } from "@/utils/cn";
-import { useState } from "react";
 import RobotCard from "./RobotCard";
 import Chat from "./chat/Chat";
 
@@ -8,17 +7,16 @@ const RobotMe = ({
 }: {
   ref: React.RefObject<HTMLDivElement | null> | null;
 }) => {
-  // const [isWorking, setIsWorking] = useState(false)
 
   return (
     <div
       ref={ref}
-      className="max-w-7xl mx-auto h-dvh pt-14 pb-2 px-5 grid grid-cols-4 gap-4 "
+      className="max-w-7xl mx-auto h-dvh pt-14 pb-2 px-5 sm:grid sm:grid-cols-4 gap-4 "
     >
-      <div className={cn("col-span-1 flex justify-center items-start", {"bg-black/20": true})}>
+      <div className={cn("hidden col-span-1 sm:flex justify-center items-start", {"bg-black/20": true})}>
         <RobotCard/>
       </div>
-      <div className="col-span-3">
+      <div className="sm:col-span-3">
         <Chat/>
       </div>
     </div>

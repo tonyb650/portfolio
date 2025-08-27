@@ -1,10 +1,10 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const INITIAL_FORM_DATA = {name: "", email: "", message: ""}
 
 export default function ContactForm() {
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
-  // const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [isLoading, setLoading] = useState(false)
   const [isSent, setSent] = useState(false)
@@ -40,8 +40,15 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="h-[calc(100dvh-200px)]  bg-radial-[50%_20%] from-primary to-accent w-full rounded-2xl p-5 space-y-5 flex flex-col items-center">
+    <motion.form 
+      onSubmit={handleSubmit} 
+      className="h-[calc(100dvh-200px)]  bg-radial-[50%_20%] from-primary to-accent w-full rounded-2xl p-5 space-y-5 flex flex-col items-center"
+      initial={{ opacity: 0, x: -300 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{duration: 0.7}}
+    >
       {/* Honeypot hidden field */}
+      <h2 className="text-text text-2xl">Connect With Me</h2>
       <input type="text" name="company" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
 
       <input
@@ -84,6 +91,6 @@ export default function ContactForm() {
 
       {isSent && <p className="text-green-600">Message sent!</p>}
       {errorMessage && <p className="text-red-600">{errorMessage}</p>}
-    </form>
+    </motion.form>
   );
 }

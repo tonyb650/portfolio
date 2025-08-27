@@ -45,35 +45,65 @@ Secondary: #2A9D8F (Vibrant Green)
 Accent: #FFFFFF (White)
 */
 
-/******************/
-/* Welcome Section */
-/******************/
 
-/* #welcome_path {
-  fill: none;
-  stroke-width: 2.5;
-  transition: fill 1s ease-in-out;
-  stroke-dasharray: 9541.93;
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset 1s ease;
-  animation: draw_welcome 10s ease-in-out forwards;
+/*****************************************/
+/* Fine-tune the layout of Project Cards - Probably trash this...*/
+/*****************************************/
+.project-card-grid {
+  margin-inline: 1rem;
 }
 
-@keyframes draw_welcome {
-  0% {
-    stroke-dashoffset: 9541.93;
-  }
-  100% {
-    stroke-dashoffset: 0;
+@media (width >= 30rem ) {
+  .project-card-grid {
+    margin-inline: 4rem;
   }
 }
- */
+@media (width >= 36rem ) {
+  .project-card-grid {
+    margin-inline: 6rem;
+  }
+}
+@media (width >= 48rem /* 640px */) {
+  .project-card-grid {
+    margin-inline: 2rem;
+  }
 
+}
 
+/**************************/
+/* Bouncing Balls Typing  */
+/**************************/
+  .bouncer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 25px;
+    height: 12px;
+  }
+  .bouncer div {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    animation: bouncer 0.5s cubic-bezier(.19,.57,.3,.98) infinite alternate;
+  }
+  .bouncer div:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .bouncer div:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .bouncer div:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes bouncer {
+    from { transform: translateY(10px) }
+    to { transform: translateY(2px) }
+  }
 
 
 /******************/
-/* Circle Section */
+/* TRASH - I BELIEVE FROM HERE DOWN */
 /******************/
 
 /* svg {
@@ -166,33 +196,83 @@ circle {
   cursor: pointer;
 }
 
-/**************************/
-/* Bouncing Balls Typing  */
-/**************************/
-  .bouncer {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    width: 25px;
-    height: 12px;
+
+
+/******************/
+/* Welcome Section */
+/******************/
+
+/* #welcome_path {
+  fill: none;
+  stroke-width: 2.5;
+  transition: fill 1s ease-in-out;
+  stroke-dasharray: 9541.93;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s ease;
+  animation: draw_welcome 10s ease-in-out forwards;
+}
+
+@keyframes draw_welcome {
+  0% {
+    stroke-dashoffset: 9541.93;
   }
-  .bouncer div {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    animation: bouncer 0.5s cubic-bezier(.19,.57,.3,.98) infinite alternate;
+  100% {
+    stroke-dashoffset: 0;
   }
-  .bouncer div:nth-child(2) {
-    animation-delay: 0.1s;
-  }
-  .bouncer div:nth-child(3) {
-    animation-delay: 0.2s;
-  }
-  .bouncer div:nth-child(4) {
-    animation-delay: 0.3s;
-  }
-  
-  @keyframes bouncer {
-    from { transform: translateY(10px) }
-    to { transform: translateY(2px) }
-  }
+}
+*/
+
+
+/*
+https://www.webportfolios.dev/blog/best-color-palettes-for-developer-portfolio
+Brittany Chiang's Developer Portfolio Color Palette
+Background: #11172a (deep-dark blue)
+Text: #626c7d (medium gray)
+Accent: #599692 (pastel green)
+Highlighted Text: #dfe5ec (light gray)
+
+052a3d
+117192
+19c1e6
+614943 brown
+--color-secondary: #da9979;
+b3cdd7
+
+
+--color-back: #08171e;       // darkest
+--color-accent: #042b44;     // dark
+--color-primary: #096b90;    // mid
+--color-highlight: #71b7d5   //light
+--color-extra: #117192;      // light. ??
+--color-text: #a1ccdc;       //lightest (text)
+*/
+
+/*  
+@theme {
+
+--color-back: #08171e;       
+--color-accent: #042b44;     
+--color-primary: #096b90;    
+--color-highlight: #71b7d5;  
+--color-extra: #117192;      
+--color-text: #a1ccdc;    
+   
+}
+*/
+
+/* 
+@theme {
+   --color-accent: #042b44;
+  --color-primary: #117192;
+  --color-secondary: #096b90;
+  --color-extra: #117192;
+  --color-text: #a1ccdc;
+}
+*/
+
+/*
+Background: #E9C46A (Warm Gold)
+Primary: #264653 (Deep Teal)
+Secondary: #2A9D8F (Vibrant Green)
+Accent: #FFFFFF (White)
+*/

@@ -1,33 +1,28 @@
 import { cn } from "@/utils/cn";
 
-const MenuButton = ({ className }: { className?: string }) => {
+
+const MenuButton = ({isOpen = false, className} : {isOpen?: boolean, className?: string}) => {
+
   return (
-    <>
-      <button className={cn("cursor-pointer ", className)}>
-        <Hamburger />
-      </button>
-      {/* modal here */}
-    </>
+
+    <div className={cn("w-12 h-12 relative", className)}>
+      <span 
+        className={cn("bg-white w-full h-1 rounded-full block absolute transition-all duration-500 translate-x-0 translate-y-[9px]",
+          {"translate-y-[21px] -rotate-45": isOpen}
+        )} 
+      />
+      <span 
+        className={cn("bg-white w-full h-1 rounded-full block absolute translate-x-0 translate-y-[21px] transition-all duration-500"
+          , {"w-0 translate-x-[24px]": isOpen})}
+      />
+
+      <span 
+        className={cn("bg-white w-full h-1 rounded-full block absolute transition-all duration-500 translate-x-0 translate-y-[33px]",
+          {"translate-y-[21px] rotate-45": isOpen}
+        )} 
+      />
+    </div>
   );
 };
 
-export default MenuButton;
-
-const Hamburger = () => {
-  return (
-    <svg
-      width="64"
-      //  height="64"
-      viewBox="0 0 512 325"
-      fill="white"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs id="defs1" />
-      <g id="layer1">
-        <rect id="rect2" width="512" height="85" x="0" y="240" ry="30" />
-        <rect id="rect3" width="512" height="85" x="0" y="120" ry="30" />
-        <rect id="rect4" width="512" height="85" x="0" y="0" ry="30" />
-      </g>
-    </svg>
-  );
-};
+export default MenuButton

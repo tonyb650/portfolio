@@ -27,11 +27,11 @@ const ProjectCard = ({image, title, description, light = false}: ProjectCardProp
 
   // TODO Look to WDS Job Board for proper handling of responsive card layout
   return (
-    <div
+    <button
       onMouseOver={highlight}
       onMouseLeave={restore}
       className={cn(
-        "min-w-[400px] min-h-[300px] overflow-hidden relative flex flex-col justify-between p-2.5",
+        "lg:min-w-[400px] md:min-h-[300px] overflow-hidden relative flex flex-col justify-between p-2.5",
         {
           "bg-linear-to-t from-[#000000DD] via-[#000000DD] via-15% to-[#00000000] to-40%":
             true
@@ -41,20 +41,20 @@ const ProjectCard = ({image, title, description, light = false}: ProjectCardProp
       <div className="flex justify-end">
         <Pointer hoverControls={hoverControls} light={light} />
       </div>
-      <div className={cn("text-white ")}>
-        <Title text={title} hoverControls={hoverControls} />
+      <div className={cn("text-white text-left")}>
+        <Title text={title} hoverControls={hoverControls} className={cn({"text-shadow-black text-shadow-sm": light})}/>
         <div>{description}</div>
       </div>
       <ProjectImage image={image} hoverControls={hoverControls} />
-    </div>
+    </button>
   );
 };
 
 export default ProjectCard;
 
-const Title = ({ text, hoverControls }: {text: string, hoverControls: LegacyAnimationControls}) => {
+const Title = ({ text, hoverControls, className }: {text: string, hoverControls: LegacyAnimationControls, className?: string}) => {
   return (
-    <RollText hoverControls={hoverControls} className="text-2xl font-black ">
+    <RollText hoverControls={hoverControls} className={cn("text-2xl", className)}>
       {text}
     </RollText>
   );

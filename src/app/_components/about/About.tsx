@@ -11,16 +11,16 @@ const About = ({
   ref: React.RefObject<HTMLDivElement | null> | null;
 }) => {
   return (
-    <div ref={ref} className="max-w-7xl mx-auto min-h-[90vh] md:min-h-[80vh]  flex">
-      <div className="flex flex-col-reverse md:grid md:grid-cols-5 md:items-center  md:flex-auto">
-        <div className="md:col-span-3   flex flex-auto items-start">
-          <div className="w-full space-y-8 md:space-y-0 pl-6  ">
+    <div ref={ref} className="max-w-7xl mx-auto min-h-[90vh] flex">
+      <div className="flex flex-col-reverse md:grid md:grid-cols-5 md:items-center md:flex-auto">
+        <div className="md:col-span-3 flex flex-auto items-start">
+          <div className="w-full space-y-8 md:space-y-0 px-5 md:pl-8 ">
             <Welcome className=""/>
             <WelcomeText />
             {/* <ColorPalette/> */}
           </div>
         </div>
-        <div className="md:col-span-2 flex justify-center  flex-auto items-center  ">
+        <div className="pt-12 md:pt-0 md:col-span-2 flex justify-center  flex-auto items-center  ">
           <Image
             priority
             src={Laptop.src}

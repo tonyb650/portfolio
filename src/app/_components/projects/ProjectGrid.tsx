@@ -6,7 +6,7 @@ import wwsSpeech from '@/assets/projects/wws_speech.png'
 import ProjectCard from './ProjectCard'
 const ProjectGrid = () => {
   return (
-    <div className='sm:grid md:grid-cols-2 gap-8 mx-8 my-12'>
+    <div className='grid mx-4 sm:mx-24 md:grid-cols-2 gap-5 my-12 ' >
       <ProjectCard image={cyberSecurity.src} title="Pocket Security" description='AI-powered wedding planning platform.'/>
       <ProjectCard image={wwsSpeech.src} title="Wedding Wordsmith" description='AI-powered wedding planning platform.'/>
       <ProjectCard image={clock.src} title="Time Manager" description='AI-powered wedding planning platform.'/>

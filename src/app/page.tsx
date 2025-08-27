@@ -18,6 +18,7 @@ export type RefContextType = {
 export const RefContext = createContext<RefContextType | null>(null);
 
 import { useRef } from "react";
+import { cn } from "@/utils/cn";
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement | null>(null);
@@ -31,29 +32,28 @@ export default function Home() {
     >
       <ScrollToTop />
       <div className="flex flex-col ">
-        <header className="z-10 bg-radial-[at_75%_00%] from-accent to-primary shadow-sm sticky top-0">
+        <header className={cn("z-10 w-full bg-accent sm:bg-radial-[at_75%_00%] from-accent to-primary shadow-sm fixed top-0")}>
           <div className="max-w-7xl mx-auto">
             <Navbar />
           </div>
         </header>
 
-    
-        <div className="bg-back">
-          <About ref={aboutRef} />
-        </div>
+        <main>
+          <div className="bg-back pt-12">
+            <About ref={aboutRef} />
+          </div>
 
-        <Projects ref={projectsRef} />
+          <Projects ref={projectsRef} />
 
-        <div className="bg-back">
-          <RobotMe ref={robotRef} />
-        
-          <Contact ref={contactRef} />
+          <div className="bg-back">
+            <RobotMe ref={robotRef} />
+            <Contact ref={contactRef} />
+          </div>
+        </main>
 
-          <footer className="text-center text-white p-1">
-            tonybrierly.com
-          </footer>
-
-        </div>
+        <footer className="text-center text-text p-1 bg-back">
+          tonybrierly.com
+        </footer>
       </div>
     </RefContext.Provider>
   );
