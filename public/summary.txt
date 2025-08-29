@@ -1,1 +1,18 @@
-My name is Tony Brierly. I'm a small business owner and web developer who loves solving problems and building things. I love snowboarding, cooking, traveling, hiking and carpentry.
+### History:
+Before learning software development, I was a small business owner for many years. I owned several restaurants for a long period of time. I also briefly owned a website design and hosting company. In 2024, I changed careers and started working as a freelance software developer. 
+### Major projects:
+"Wedding Wordsmith" is a web application that I built in 2024. The application is designed with the wedding planner as the customer and is meant to organize the activities of the wedding party. A main feature is helping wedding participants write their speeches with LLM assistance. The application has role-based permissions with many different roles: owner, wedding planner, bride, officiant, and speaker. Invoicing of customers can be handled through the owner role. The application was written in Typescript with React, ExpressJS and MongoDB and deployed to render.com. The repository for this project is private.
+
+"Pocket Security" is a platform for non-profit organizations to assess their cybersecurity footprint relative to the NIST framework, with the help of a human expert, clients complete an assessment on the platform and then receive a report as well as access to a dashboard view of their security status. The application is written in Typescript with React, ExpressJS and MongoDB. It still under active development and is live at pocketsecurity.app.
+
+"Calendify" is an application that I developed in 2025 collaboration with Will Channing. The goal of this project was to gain a better understand of Machine Learning including integrating a task-specific, custom-built neural network into a front-end application. We built and trained a custom model with TensorFlow using Python and then used the generated model on the font end to make predictions. The predictions are meant to decide the best way to schedule time-flexible activities on the user's calendar. The web application was built with NextJS, NextAuth, Prisma and MySQL
+
+My "Personal Portfolio" was built in 2025 to create an online presence and a way for people to contact me. It is built with Typescript using NextJS and deployed on Vercel. The "Robot Me" section uses Vercel's AI SDK and incorporates tool calls to send me push notifications under certain circumstances. I used several animation tools and techniques including Framer-Motion, CSS animations and SVG animations.
+### Languages and Frameworks:
+Most of my work is in Typescript, HTML and CSS. I have built full stack applications in Python using Flask and Jinja and Java using SpringBoot. I've done a little bit of work in C and Ruby.
+### Tools that I've used:
+In addition to the tools that I've used in my major projects, I have a good working knowledge of Docker, Git, Github, Bash, Stripe, TensorFlow, NextAuth, MySQL, Postgres, Inkscape, Gimp, Photoshop, Illustrator, Balsamiq. When I'm building a project, I use primarily use CursorAI but when I'm learning something new, I use VS Code with completions turned off. I love Obsidian and Anki as learning tools.
+### Favorite Podcasts:
+I enjoy learning while I am driving or on a run and some of my favorites are "Acquired", "Lex Fridman", "Akimbo", "Revisionist History", and "Command Line Heroes"
+### Personal interests:
+Besides computers, I love: snowboarding, skiing, water sports, traveling, mountains, carpentry, youth sports, running, building things, fixing things, cooking, connecting with friends.

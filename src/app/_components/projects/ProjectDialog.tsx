@@ -21,7 +21,7 @@ const ProjectDialog = ({project, isOpen, onClose}: ProjectDialogProps) => {
             <DialogTitle className="font-bold text-4xl uppercase  text-center">{project.title}</DialogTitle>
             <div className='flex justify-center w-full '>
 
-            <Image src={`/images/${project.screenshot}`} className="rounded-lg shadow-black shadow-md" alt="Screenshot of project"/>
+            <img src={`/images/${project.screenshot}`} className="rounded-lg shadow-black shadow-md" alt="Screenshot of project"/>
             </div>
             <Description>{project.description}</Description>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus temporibus provident porro nemo ipsa inventore, alias similique exercitationem iusto ratione illo enim repellat dolor soluta odio veritatis a repudiandae eum non quis. Eaque recusandae eos, doloremque repellendus animi dolorum quos quisquam tempore velit soluta sequi pariatur modi totam, quod dicta accusamus id qui ducimus dolore incidunt vitae, hic error. Provident corporis omnis neque deserunt facere animi dolor ut ipsa odio porro? Debitis libero deserunt recusandae ad ea dicta voluptatum quas, culpa explicabo commodi alias amet eos consequatur a aliquid excepturi at non dolore expedita, itaque sed enim ut! Placeat, voluptate.</p>
