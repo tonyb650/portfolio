@@ -6,16 +6,13 @@ import {
 } from "framer-motion";
 import { GoArrowRight } from "react-icons/go";
 import RollText from "./RollText";
+import { useState } from "react";
+import ProjectDialog from "./ProjectDialog";
+import { type Project } from "./Projects";
 
-type ProjectCardProps = {
-  image: string;
-  title: string;
-  description: string;
-  light?: boolean;
-};
-
-const ProjectCard = ({image, title, description, light = false}: ProjectCardProps) => {
-  const hoverControls = useAnimationControls();
+const ProjectCard = ({project}: {project: Project}) => {
+  const hoverControls = useAnimationControls()
+  const [isDetailOpen, setDetailOpen] = useState<boolean>(false)
 
   const highlight = () => {
     hoverControls.start("highlight");
@@ -27,26 +24,27 @@ const ProjectCard = ({image, title, description, light = false}: ProjectCardProp
 
   // TODO Look to WDS Job Board for proper handling of responsive card layout
   return (
-    <button
-      onMouseOver={highlight}
-      onMouseLeave={restore}
-      className={cn(
-        "lg:min-w-[400px] md:min-h-[300px] overflow-hidden relative flex flex-col justify-between p-2.5",
-        {
-          "bg-linear-to-t from-[#000000DD] via-[#000000DD] via-15% to-[#00000000] to-40%":
-            true
-        }
-      )}
-    >
-      <div className="flex justify-end">
-        <Pointer hoverControls={hoverControls} light={light} />
-      </div>
-      <div className={cn("text-white text-left")}>
-        <Title text={title} hoverControls={hoverControls} className={cn({"text-shadow-black text-shadow-sm": light})}/>
-        <div>{description}</div>
-      </div>
-      <ProjectImage image={image} hoverControls={hoverControls} />
-    </button>
+    <>
+      <button
+        onMouseOver={highlight}
+        onMouseLeave={restore}
+        className={cn(
+          "lg:min-w-[400px] md:min-h-[300px] overflow-hidden relative flex flex-col justify-between p-2.5",
+          "bg-linear-to-t from-[#000000DD] via-[#000000DD] via-15% to-[#00000000] to-40%"
+        )}
+        onClick={() => setDetailOpen(true)}
+      >
+        <div className="flex justify-end">
+          <Pointer hoverControls={hoverControls} light={project.light || false} />
+        </div>
+        <div className={cn("text-white text-left")}>
+          <Title text={project.title} hoverControls={hoverControls} className={cn({"text-shadow-black text-shadow-sm": project.light})}/>
+          <div>{project.description}</div>
+        </div>
+        <ProjectImage filename={project.coverImage} hoverControls={hoverControls} />
+      </button>
+      <ProjectDialog project={project} isOpen={isDetailOpen} onClose={() => setDetailOpen(false)}/>
+    </>
   );
 };
 
@@ -84,10 +82,11 @@ const Pointer = ({
   );
 };
 
-const ProjectImage = ({ image, hoverControls }:{image: string, hoverControls: LegacyAnimationControls}) => {
+const ProjectImage = ({ filename, hoverControls }:{filename: string, hoverControls: LegacyAnimationControls}) => {
+
   return (
     <motion.img
-      src={image}
+      src={`/images/${filename}`}
       variants={{
         initial: { scale: "1", filter: "grayscale(100%)" },
         highlight: { scale: "1.1", filter: "grayscale(0%)" }

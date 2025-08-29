@@ -84,7 +84,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isLoading}
-        className=" bg-text text-back px-8 py-2 rounded shadow-lg"
+        className=" bg-text text-bgcolor px-8 py-2 rounded shadow-lg"
       >
         {isLoading ? "Sending..." : "Send"}
       </button>

@@ -39,26 +39,22 @@ export default function Home() {
         </header>
 
         <main>
-          <div className="bg-back pt-12">
+          <div className="bg-bgcolor pt-12">
             <About ref={aboutRef} />
           </div>
 
           <Projects ref={projectsRef} />
 
-          <div className="bg-back">
+          <div className="bg-bgcolor">
             <RobotMe ref={robotRef} />
             <Contact ref={contactRef} />
           </div>
         </main>
 
-        <footer className="text-center text-text p-1 bg-back">
+        <footer className="text-center text-text p-1 bg-bgcolor">
           tonybrierly.com
         </footer>
       </div>
     </RefContext.Provider>
   );
 }
-/**
- * 
- *     <main className="flex h-full flex-col items-center justify-center bg-radial-[at_50%_00%] from-sky-400 to-blue-800">
- */
