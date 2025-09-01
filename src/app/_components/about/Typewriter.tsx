@@ -1,5 +1,5 @@
 import { cn } from '@/utils/cn';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 
 type TypewriterProps = {
@@ -9,9 +9,10 @@ type TypewriterProps = {
 }
 
 const Typewriter = ({ text, delay=25, className }: TypewriterProps) => {
-  const [currentText, setCurrentText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const words = text.split(" ")
+  const [currentText, setCurrentText] = useState('')
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const words = useMemo(() => text.split(" "),[text])
 
   useEffect(() => {
     if (currentIndex < words.length) {
@@ -24,7 +25,12 @@ const Typewriter = ({ text, delay=25, className }: TypewriterProps) => {
     }
   }, [currentIndex, delay, text, words]);
 
-  return <span className={cn(className)}>{currentText}</span>;
+  return (
+
+    <span className={cn(className)}>
+      {currentText}
+    </span>
+  ) 
 };
 
 export default Typewriter;

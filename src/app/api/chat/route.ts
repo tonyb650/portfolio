@@ -102,7 +102,7 @@ const recordUserDetailsTool = tool({
     notes: z.string().describe("Any additional information about the conversation that's worth recording to give context").optional(),
   })
   ,execute: async ({email, name="Name not provided", notes="not provided" }) =>{
-    const status = await sendPush(`Recording interest from ${name} with email ${email} and notes $notes}.`)
+    const status = await sendPush(`Recording interest from ${name} with email ${email} and notes ${notes}.`)
     return status === 1 ? "Successfully recorded user details and will contact the user soon." : "Because of technical errors, could not successfully record the user details."
   }
 })

@@ -2,8 +2,8 @@ import Laptop from '@/assets/about/hands_typing.png'
 import Welcome from './Welcome';
 import WelcomeText from './WelcomeText';
 import Image from 'next/image';
-// import ColorPalette from '../ColorPalette';
 
+const WELCOME_BIO_TEXT = "My name is Tony Brierly. I'm a full stack software developer who loves working with clients to bring web applications from rough concept to full implementation. Let's build something great together."
 
 const About = ({
   ref
@@ -16,8 +16,7 @@ const About = ({
         <div className="md:col-span-3 flex flex-auto items-start">
           <div className="w-full space-y-8 md:space-y-0 px-5 md:pl-8 ">
             <Welcome className=""/>
-            <WelcomeText />
-            {/* <ColorPalette/> */}
+            <WelcomeText text={WELCOME_BIO_TEXT}/>
           </div>
         </div>
         <div className="pt-12 md:pt-0 md:col-span-2 flex justify-center  flex-auto items-center  ">
