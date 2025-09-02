@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import { promises as fs } from "fs";
 import{ openai } from "@ai-sdk/openai"
-import { convertToModelMessages, stepCountIs, streamText, tool, ToolSet, UIMessage } from "ai"
+import { convertToModelMessages, stepCountIs, streamText, tool, UIMessage } from "ai"
 import {z} from 'zod'
 import sendPush from "@/utils/pushNotification";
 

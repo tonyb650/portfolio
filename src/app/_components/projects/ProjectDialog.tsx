@@ -1,7 +1,7 @@
 import React from 'react'
 import { Description, Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { type Project } from './Projects'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 type ProjectDialogProps = {
   project: Project,

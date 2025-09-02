@@ -30,9 +30,9 @@ const Navbar = () => {
   ];
 
   const scrollToSection = (ref: RefObject<HTMLDivElement | null> | null, offset: number) => {
-    let elementPosition = ref?.current?.getBoundingClientRect().top                        // Relatively, where on the screen is this element now?
-    let currentPosition = window.pageYOffset                                               // how far down the screen is the user currently scrolled?
-    let offsetPosition = elementPosition ? elementPosition + currentPosition  - offset : 0 // add it all together to get a good target to scroll to
+    const elementPosition = ref?.current?.getBoundingClientRect().top                        // Relatively, where on the screen is this element now?
+    const currentPosition = window.pageYOffset                                               // how far down the screen is the user currently scrolled?
+    const offsetPosition = elementPosition ? elementPosition + currentPosition  - offset : 0 // add it all together to get a good target to scroll to
     window.scrollTo({
       top: offsetPosition,
       behavior: "smooth"
