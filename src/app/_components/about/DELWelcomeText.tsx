@@ -5,7 +5,7 @@ const WelcomeText = ({text}: {text: string}) => {
     <div className="h-60 md:h-30 md:ml-4">
       <Typewriter
         text={text} 
-        delay={25}
+        delay={30}
         className="text-text"
       />
     </div>

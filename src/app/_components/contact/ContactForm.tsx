@@ -58,7 +58,7 @@ export default function ContactForm() {
         value={formData.name}
         onChange={handleChange}
         required
-        className="w-3/4 p-2 bg-white rounded shadow-md"
+        className="w-full sm:w-3/4 p-2 bg-white rounded shadow-md"
       />
 
       <input
@@ -68,7 +68,7 @@ export default function ContactForm() {
         value={formData.email}
         onChange={handleChange}
         required
-        className="w-3/4 p-2 bg-white rounded shadow-md"
+        className="w-full sm:w-3/4 p-2 bg-white rounded shadow-md"
       />
 
       <textarea
@@ -77,7 +77,7 @@ export default function ContactForm() {
         value={formData.message}
         onChange={handleChange}
         required
-        className="w-3/4 p-2 bg-white rounded shadow-md"
+        className="w-full sm:w-3/4 p-2 bg-white rounded shadow-md"
         rows={20}
       />
 
