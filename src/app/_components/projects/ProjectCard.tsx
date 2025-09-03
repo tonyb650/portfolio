@@ -39,7 +39,7 @@ const ProjectCard = ({project}: {project: Project}) => {
         </div>
         <div className={cn("text-white text-left")}>
           <Title text={project.title} hoverControls={hoverControls} className={cn({"text-shadow-black text-shadow-sm": project.light})}/>
-          <div>{project.description}</div>
+          <div>{project.shortDescription}</div>
         </div>
         <ProjectImage filename={project.coverImage} hoverControls={hoverControls} />
       </button>

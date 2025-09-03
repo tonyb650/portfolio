@@ -31,7 +31,12 @@ b3cdd7
 --color-highlight: #71b7d5;  
 --color-extra: #117192;      
 --color-text: #a1ccdc;       
-  /*  --color-accent: #042b44;
+
+/*  
+
+--color-text: #abc5d1;
+
+  --color-accent: #042b44;
   --color-primary: #117192;
   --color-secondary: #096b90;
   --color-extra: #117192;

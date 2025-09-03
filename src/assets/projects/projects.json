@@ -1,0 +1,36 @@
+[
+  {
+    "coverImage": "cybersecurity.png",
+    "screenshot": "ps_dashboard.png",
+    "title": "Pocket Security",
+    "shortDescription": "A structured interview platform for assessing security needs.",
+    "description": "Pocket Security is a platform for non-profit organizations to assess their cybersecurity posture relative to the NIST framework. Using the application, clients complete a guided interview/assessment. They then receive a downloadable report as well as access to a dashboard view of their security status. The project is written in Typescript with a React front end and a Node / ExpressJS back end. MongoDB was selected as the database. This application is still under active development and is live at https://pocketsecurity.app.",
+    "url" : "https://pocketsecurity.app"
+  },
+  {
+    "coverImage": "wws_speech.png",
+    "screenshot": "wws_screenshot.png",
+    "title": "Wedding Wordsmith",
+    "shortDescription": "An AI-powered wedding planning and speech collaboration platform.",
+    "description": "Wedding Wordsmith is a web application to serve those participating in weddings, particularly professional wedding planners. It is a tool designed to help organize wedding activities. A key function is that Wedding Wordsmith helps wedding participants write their vows and speeches with LLM assistance. The application handles a multitude of user roles: owner, wedding planner, bride, officiant, and speaker. This results in significant complexity as a single user may be in multiple weddings and have different roles in each. The project is written in Typescript with a React front end and a Node / ExpressJS back end. MongoDB is the database. The repository for this project is private."
+
+  },
+  {
+    "coverImage": "clock.png",
+    "screenshot": "tm_screenshot.png",
+    "title": "Time Manager",
+    "shortDescription": "A unique time management tool with integrated Pomodoro timer.",
+    "description": "Managing time, especially as a solo learner, can be challenging. I wanted to build a tool that would do the following: 1) Provide a customizable daily schedule that is a blend of routine tasks and ad-hoc tasks and meetings. 2) Provide a reminder (visual and auditory) when it is time to change tasks. 3) Incorporate breaks by default. This is a reminder that 3-5 minutes away from a task is often crucial to recharge and regain perspective. And 4) Allow the flexibility for pausing, continuing, and completing tasks early. This is crucial as the flow of a day is never predictable. This is a MERN project written in Javascript.",
+    "gitHub": "https://github.com/tonyb650/time-manager"
+  },
+  {
+    "coverImage": "calendar.png",
+    "screenshot": "calendify_screenshot.png",
+    "title": "Calendify",
+    "shortDescription": "Using TensorFlow and Machine Learning to optimally schedule you calendar.",
+    "description": "Calendify is an application that I developed in collaboration with Will Channing. We wanted to build a task-specific neural network into a front-end application with the personal goal of gaining a better command of machine learning in the process. Using TensorFlow and Python, we defined, compiled, fit, and finally saved this purpose-built model. We then converted the model for TFJS and utilized it within our font end applications to make predictions. The predictions are meant to decide the best way to schedule time-flexible activities on the user's calendar. The web application was built with NextJS, NextAuth, Prisma and MySQL."
+,
+    "gitHub": "https://github.com/tonyb650/calendify",
+    "light": true
+  }
+]
