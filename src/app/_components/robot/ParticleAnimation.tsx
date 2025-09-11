@@ -4,10 +4,9 @@ type ParticleAnimationOptions = {
   particleColor: string,
   lineColor: string,
   particleAmount: number,
-  defaultRadius:number,
-  variantRadius:number,
-  defaultSpeed:number,
-  variantSpeed:number,
+  defaultRadius: number,
+  variantRadius: number,
+  variantSpeedFactor: number,
   linkRadius: number,
 }
 
@@ -15,20 +14,19 @@ const DEFAULT_OPTIONS: ParticleAnimationOptions = {
   particleColor: "rgba(255,255,255)",
   lineColor:  "rgba(0,181,255)",
   particleAmount:  30,
-  defaultRadius:  10,
+  defaultRadius:  2,
   variantRadius:  2,
-  defaultSpeed:  0.5,
-  variantSpeed:  2,
-  linkRadius:  300,
+  variantSpeedFactor:  1,
+  linkRadius:  200,
 }
 
-
 type ParticleAnimationProps = {
+  containerRef: React.RefObject<HTMLDivElement | null>
   customOptions?: Partial<ParticleAnimationOptions>
   speed?: number
 }
 
-const ParticleAnimation = ({ customOptions, speed = 1}: ParticleAnimationProps) => {
+const ParticleAnimation = ({ containerRef, customOptions, speed = 1}: ParticleAnimationProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationId = useRef<number | null>(null);
   const particlesRef = useRef<Particle[]>([]);
@@ -44,15 +42,13 @@ const ParticleAnimation = ({ customOptions, speed = 1}: ParticleAnimationProps) 
     const canvas = canvasRef.current;
 
     if (!canvas) return
-    wRef.current = window.innerWidth;
-    hRef.current = window.innerHeight;
 
     const ctx = canvas.getContext("2d");
 
     function resizeCanvas() {
-      if (!canvas) return
-      wRef.current = window.innerWidth;
-      hRef.current = window.innerHeight;
+      if (!canvas || !containerRef?.current) return
+      wRef.current = containerRef.current.clientWidth;
+      hRef.current = containerRef.current.clientHeight;
       canvas.width = wRef.current;
       canvas.height = hRef.current;
     }
@@ -60,7 +56,7 @@ const ParticleAnimation = ({ customOptions, speed = 1}: ParticleAnimationProps) 
     function initializeParticles() {
       particlesRef.current = [];
       for (let i = 0; i < options.particleAmount; i++) {
-        particlesRef.current.push(new Particle(options, wRef, hRef));
+        particlesRef.current.push(new Particle(speed, options, wRef, hRef));
       }
     }
 
@@ -91,16 +87,15 @@ const ParticleAnimation = ({ customOptions, speed = 1}: ParticleAnimationProps) 
       animationId.current = requestAnimationFrame(animationLoop);
     }
 
-    // Setup
-    resizeCanvas();
-    initializeParticles();
-    animationLoop();
-
     const handleResize = () => {
       resizeCanvas();
       initializeParticles();
     }
 
+    // Start Up The Animation
+    resizeCanvas();
+    initializeParticles();
+    animationLoop();
     window.addEventListener("resize", handleResize);
 
     // Cleanup
@@ -110,14 +105,15 @@ const ParticleAnimation = ({ customOptions, speed = 1}: ParticleAnimationProps) 
     };
   }, [options])
 
+  /* This useEffect is primarily for speed changes */
   useEffect(() => {
-  // Only update speeds if particles exist
-  if (particlesRef.current.length > 0 && speed !== undefined) {
+  if (particlesRef.current.length > 0 ) {
     particlesRef.current.forEach(particle => {
-      // Optionally, you can keep the variantSpeed randomness
-      const overallSpeed = (options.defaultSpeed * speed) + Math.random() * (options.variantSpeed || 0);
+      // Calculate new speed for this particle
+      const overallSpeed = speed + (Math.random() * speed * (options.variantSpeedFactor || 0));
+      // Set new speed
       particle.speed = overallSpeed;
-      // Recalculate vector based on new speed and direction
+      // Recalculate and set vector based on new speed and direction
       particle.vector = {
         x: Math.cos(particle.directionAngle) * overallSpeed,
         y: Math.sin(particle.directionAngle) * overallSpeed,
@@ -137,25 +133,11 @@ const ParticleAnimation = ({ customOptions, speed = 1}: ParticleAnimationProps) 
 export default ParticleAnimation;
 
 
+/****************************/
+/* Particle Class & Helpers */
+/****************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-console.log("RE-RENDERING")
-
-
-export type Point = {
+type Point = {
   x: number
   y: number
 }
@@ -173,7 +155,7 @@ export class Particle {
     directionAngle: number
     vector: {x: number, y: number}
 
-    constructor(options: ParticleAnimationOptions, wRef: React.RefObject<number>, hRef: React.RefObject<number>) {
+    constructor(speed: number, options: ParticleAnimationOptions, wRef: React.RefObject<number>, hRef: React.RefObject<number>) {
       this.wRef = wRef
       this.hRef = hRef
       this.x = Math.random() * wRef.current;
@@ -181,7 +163,7 @@ export class Particle {
       this.color = options.particleColor;
       this.radius =
         options.defaultRadius + Math.random() * options.variantRadius;
-      this.speed = options.defaultSpeed + Math.random() * options.variantSpeed;
+      this.speed = speed + (Math.random() * speed * options.variantSpeedFactor);
       this.directionAngle = Math.floor(Math.random() * 360);
       this.vector = {
         x: Math.cos(this.directionAngle) * this.speed,
@@ -227,7 +209,7 @@ export  function linkPoints(options: ParticleAnimationOptions, ctx: CanvasRender
       const distance = checkDistance(point.x, point.y, hubs[i].x, hubs[i].y);
       const opacity = 1 - distance / options.linkRadius;
       if (opacity > 0) {
-        ctx.lineWidth = 5;
+        ctx.lineWidth = 1;
         ctx.strokeStyle = `rgba(${rgb(options.lineColor)?.[0]},${rgb(options.lineColor)?.[1]},${rgb(options.lineColor)?.[2]},${opacity})`;
         ctx.beginPath();
         ctx.moveTo(point.x, point.y);
