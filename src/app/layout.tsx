@@ -18,6 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Tony Brierly Portfolio",
   description: "Tony Brierly Portfolio",
+  viewport: "width=device-width, initial-scale=1, interactive-widget=resizes-content",
 };
 
 export default function RootLayout({
