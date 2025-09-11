@@ -1,7 +1,7 @@
 import Arc from "../Arc";
 import ProjectCard from "./ProjectCard";
 import ProjectGrid from "./ProjectGrid";
-import projects from "@/assets/projects/projects.json"; // Import JSON
+import projects from "./data/projects.json";
 
 export type Project = {
   coverImage: string;

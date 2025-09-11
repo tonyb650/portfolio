@@ -4,15 +4,21 @@ import ChatContainer from "./ChatContainer"
 import ChatHeader from "./ChatHeader"
 import ChatInput from "./ChatInput"
 import ChatMessageList from "./ChatMessageList"
+import { Dispatch, SetStateAction } from "react"
 
 
 const chat = new SdkChat({
   transport: new DefaultChatTransport({
     api: "/api/chat",
   }),
-});
+})
 
-const Chat = () => {
+
+type ChatProps = {
+  setIsThinking: Dispatch<SetStateAction<boolean>>
+}
+
+const Chat = ({setIsThinking}: ChatProps) => {
     const {messages} = useChat({
       chat: chat,
       experimental_throttle: 50,
@@ -31,7 +37,7 @@ const Chat = () => {
         Hi there. It&apos;s me, Tony!<br></br> Well, not really. But ask me any question and I will answer as if I am! And I know everything from LinkedIn plus a whole lot more. Also, if you ask me a question I don&apos;t know, I&apos;ll have Tony tell me that information for next time.
       </ChatHeader>
       <ChatMessageList messages={messages}/>
-      <ChatInput chat={chat} />
+      <ChatInput chat={chat} setIsThinking={setIsThinking}/>
     </ChatContainer>
   )
 }

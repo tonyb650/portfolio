@@ -3,18 +3,28 @@
 import { cn } from "@/utils/cn";
 import { Chat, UIMessage, useChat } from "@ai-sdk/react";
 import { UIDataTypes, UITools } from "ai";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import ChatTypingIndicator from "./ChatTypingIndicator";
 
 type ChatInputProps = {
   chat: Chat<UIMessage<unknown, UIDataTypes, UITools>>;
   className?: string;
+  setIsThinking: Dispatch<SetStateAction<boolean>>;
 };
 
-const ChatInput = ({ chat, className }: ChatInputProps) => {
+const ChatInput = ({ chat, className, setIsThinking }: ChatInputProps) => {
   const [chatInput, setChatInput] = useState<string>("")
-  const {sendMessage, status} = useChat({chat})
+  const {sendMessage, status } = useChat({chat})
+
+  useEffect(() => {
+    setIsThinking(status !== "ready")
+    // if(status !== "ready") {
+    //   setIsThinking(true)
+    // } else {
+    //   setIsThinking(false)
+    // }
+  }, [status, setIsThinking])
 
   const handleSubmit =  (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,7 +33,6 @@ const ChatInput = ({ chat, className }: ChatInputProps) => {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    console.log("keyDown");
     if (
       e.key == "Enter" &&
       !e.shiftKey &&

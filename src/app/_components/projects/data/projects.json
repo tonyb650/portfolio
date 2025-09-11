@@ -27,7 +27,7 @@
     "coverImage": "calendar.png",
     "screenshot": "calendify_screenshot.png",
     "title": "Calendify",
-    "shortDescription": "Using TensorFlow and Machine Learning to optimally schedule you calendar.",
+    "shortDescription": "Using TensorFlow and Machine Learning to optimally schedule your calendar.",
     "description": "Calendify is an application that I developed in collaboration with Will Channing. We wanted to build a task-specific neural network into a front-end application with the personal goal of gaining a better command of machine learning in the process. Using TensorFlow and Python, we defined, compiled, fit, and finally saved this purpose-built model. We then converted the model for TFJS and utilized it within our font end applications to make predictions. The predictions are meant to decide the best way to schedule time-flexible activities on the user's calendar. The web application was built with NextJS, NextAuth, Prisma and MySQL."
 ,
     "gitHub": "https://github.com/tonyb650/calendify",
