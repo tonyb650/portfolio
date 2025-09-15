@@ -34,7 +34,7 @@ const Chat = ({setIsThinking}: ChatProps) => {
   return (
     <ChatContainer>
       <ChatHeader className="bg-radial-[at_25%_00%] from-accent to-primary text-white text-left px-8 py-2 ">
-        Hi there. It&apos;s me, Tony!<br></br> Well, not really. But ask me any question and I will answer as if I am! And I know everything from LinkedIn plus a whole lot more. Also, if you ask me a question I don&apos;t know, I&apos;ll have Tony tell me that information for next time.
+        Hi there. It&apos;s me, Tony!<br></br> Well, not really. But ask me any question and I will answer as if I am! And I know everything from LinkedIn plus a whole lot more. Also, if you ask me a question I don&apos;t know, I&apos;ll have Tony add that to my knowledge base for next time.
       </ChatHeader>
       <ChatMessageList messages={messages}/>
       <ChatInput chat={chat} setIsThinking={setIsThinking}/>

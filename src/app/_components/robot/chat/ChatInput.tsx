@@ -52,7 +52,6 @@ const ChatInput = ({ chat, className, setIsThinking }: ChatInputProps) => {
       className={cn("w-auto bg-accent text-white rounded-xl flex m-2", className)}
     >
       <textarea
-        autoFocus
         name="chatInput"
         id="chatInput"
         rows={2}

@@ -6,7 +6,7 @@ import Projects from "./_components/projects/Projects";
 import RobotMe from "./_components/robot/RobotMe";
 import Contact from "./_components/contact/Contact";
 import Navbar from "./_components/nav/Navbar";
-import ScrollToTop from "./_components/ScrollToTop";
+// import ScrollToTop from "./_components/ScrollToTop";
 
 export type RefContextType = {
   aboutRef: React.RefObject<HTMLDivElement | null>;
@@ -30,7 +30,7 @@ export default function Home() {
     <RefContext.Provider
       value={{ aboutRef, projectsRef, robotRef, contactRef }}
     >
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <div className="flex flex-col ">
         <header className={cn("z-10 w-full bg-accent sm:bg-radial-[at_75%_00%] from-accent to-primary shadow-sm fixed top-0")}>
           <div className="max-w-7xl mx-auto">
