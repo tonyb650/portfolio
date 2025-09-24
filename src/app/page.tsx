@@ -1,39 +1,43 @@
-"use client"
+'use client'
 
-import { createContext } from "react";
-import About from "./_components/about/About";
-import Projects from "./_components/projects/Projects";
-import RobotMe from "./_components/robot/RobotMe";
-import Contact from "./_components/contact/Contact";
-import Navbar from "./_components/nav/Navbar";
+import { createContext } from 'react'
+import About from './_components/about/About'
+import Projects from './_components/projects/Projects'
+import RobotMe from './_components/robot/RobotMe'
+import Contact from './_components/contact/Contact'
+import Navbar from './_components/nav/Navbar'
 // import ScrollToTop from "./_components/ScrollToTop";
 
 export type RefContextType = {
-  aboutRef: React.RefObject<HTMLDivElement | null>;
-  projectsRef: React.RefObject<HTMLDivElement | null>;
-  robotRef: React.RefObject<HTMLDivElement | null>;
-  contactRef: React.RefObject<HTMLDivElement | null>;
-};
+  aboutRef: React.RefObject<HTMLDivElement | null>
+  projectsRef: React.RefObject<HTMLDivElement | null>
+  robotRef: React.RefObject<HTMLDivElement | null>
+  contactRef: React.RefObject<HTMLDivElement | null>
+}
 
-export const RefContext = createContext<RefContextType | null>(null);
+export const RefContext = createContext<RefContextType | null>(null)
 
-import { useRef } from "react";
-import { cn } from "@/utils/cn";
+import { useRef } from 'react'
+import { cn } from '@/utils/cn'
 
 export default function Home() {
-  const aboutRef = useRef<HTMLDivElement | null>(null);
-  const projectsRef = useRef<HTMLDivElement | null>(null);
-  const robotRef = useRef<HTMLDivElement | null>(null);
-  const contactRef = useRef<HTMLDivElement | null>(null);
+  const aboutRef = useRef<HTMLDivElement | null>(null)
+  const projectsRef = useRef<HTMLDivElement | null>(null)
+  const robotRef = useRef<HTMLDivElement | null>(null)
+  const contactRef = useRef<HTMLDivElement | null>(null)
 
   return (
     <RefContext.Provider
       value={{ aboutRef, projectsRef, robotRef, contactRef }}
     >
       {/* <ScrollToTop /> */}
-      <div className="flex flex-col ">
-        <header className={cn("z-10 w-full bg-accent sm:bg-radial-[at_75%_00%] from-accent to-primary shadow-sm fixed top-0")}>
-          <div className="max-w-7xl mx-auto">
+      <div className="flex flex-col">
+        <header
+          className={cn(
+            'bg-accent from-accent to-primary fixed top-0 z-10 w-full shadow-sm sm:bg-radial-[at_75%_00%]'
+          )}
+        >
+          <div className="mx-auto max-w-7xl">
             <Navbar />
           </div>
         </header>
@@ -51,10 +55,10 @@ export default function Home() {
           </div>
         </main>
 
-        <footer className="text-center text-text p-1 bg-bgcolor">
+        <footer className="text-text bg-bgcolor p-1 text-center">
           tonybrierly.com
         </footer>
       </div>
     </RefContext.Provider>
-  );
+  )
 }
