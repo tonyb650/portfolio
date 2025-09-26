@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { CgWebsite } from 'react-icons/cg'
 import { FaGithub, FaTimes } from 'react-icons/fa'
 import { type Project } from './Projects'
+import ImageSlider from './ImageSlider'
 
 type ProjectDialogProps = {
   project: Project,
@@ -32,14 +33,8 @@ const ProjectDialog = ({project, isOpen, onClose}: ProjectDialogProps) => {
               <div className='px-3 pb-2  sm:px-7 space-y-4'>
                 <DialogTitle className="font-bold text-2xl sm:text-4xl uppercase  text-center">{project.title}</DialogTitle>
                 <Description className={"font-bold text-center"}>{project.shortDescription}</Description>
-                <div className='flex justify-center w-full '>
-                  <Image 
-                    width={960}
-                    height={540}
-                    src={`/images/${project.screenshot}`} 
-                    className="rounded-lg shadow-black shadow-md " 
-                    alt="Screenshot of project"
-                  />
+                <div className='flex justify-center w-full aspect-16/9 '>
+                  <ImageSlider images={project.images} className=''/>
                 </div>
                 <p>{project.description}</p>
                 <div className="flex justify-between">

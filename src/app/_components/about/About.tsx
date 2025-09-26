@@ -1,10 +1,9 @@
 import Laptop from '@/assets/about/hands_typing.png'
 import Welcome from './Welcome';
-// import WelcomeText from './DELWelcomeText';
 import Image from 'next/image';
 import Typewriter from './Typewriter';
 
-const WELCOME_BIO_TEXT = "My name is Tony Brierly. I'm a full stack software developer who loves working with clients to bring web applications from rough concept to full implementation. Let's build something great together."
+const WELCOME_BIO_TEXT = "Hi, I'm Tony. I'm a full stack software developer who loves working with clients to bring web applications from rough concept to full implementation. Let's build something great together."
 
 const About = ({
   ref

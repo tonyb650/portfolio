@@ -3,9 +3,14 @@ import ProjectCard from "./ProjectCard";
 import ProjectGrid from "./ProjectGrid";
 import projects from "./data/projects.json";
 
+export type Image = {
+  url: string,
+  alt: string,
+}
+
 export type Project = {
   coverImage: string;
-  screenshot: string;
+  images: Image[];
   title: string;
   shortDescription: string;
   description: string;
