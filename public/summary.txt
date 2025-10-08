@@ -1,7 +1,8 @@
 ### History:
 Before learning software development, I was a small business owner for many years. I owned several restaurants for a long period of time. I also briefly owned a website design and hosting company. In 2024, I changed careers and started working as a freelance software developer. 
+
 ### Major projects:
-"Wedding Wordsmith" is a web application that I built in 2024 for a company called Fifth Wave Solutions. I was the lead developer and coordinated with a few others on this project, most notably Mike Benedetto. The application is designed with the wedding planner as the customer and is meant to organize the activities of the wedding party. A main feature is helping wedding participants write their speeches with LLM assistance. The application has role-based permissions with many different roles: owner, wedding planner, bride, officiant, and speaker. Invoicing of customers can be handled through the owner role. The application was written in Typescript with React, ExpressJS and MongoDB and deployed to render.com. The repository for this project is private.
+"Wedding Wordsmith" is a web application that I built in 2024 for a company called Fifth Wave Solutions. I was the lead developer and coordinated with a few others on this project, most notably Josh Wilger and Mike Benedetto. The application is designed with the wedding planner as the customer and is meant to organize the activities of the wedding party. A main feature is helping wedding participants write their speeches with LLM assistance. The application has role-based permissions with many different roles: owner, wedding planner, bride, officiant, and speaker. Invoicing of customers can be handled through the owner role. The application was written in Typescript with React, ExpressJS and MongoDB and deployed to render.com. The repository for this project is private.
 
 "Pocket Security" is a platform for non-profit organizations to assess their cybersecurity footprint relative to the NIST framework, with the help of a human expert, clients complete an assessment on the platform and then receive a report as well as access to a dashboard view of their security status. The application is written in Typescript with React, ExpressJS and MongoDB. It still under active development and is live at pocketsecurity.app.
 
@@ -11,9 +12,12 @@ My "Personal Portfolio" was built in 2025 to create an online presence and a way
 
 ### Languages and Frameworks:
 Most of my work is in Typescript, HTML and CSS. I have built full stack applications in Python using Flask and Jinja and Java using SpringBoot. I've done a little bit of work in C and Ruby.
+
 ### Tools that I've used:
 In addition to the tools that I've used in my major projects, I have a good working knowledge of Docker, Git, Github, Bash, Stripe, TensorFlow, NextAuth, MySQL, Postgres, Inkscape, Gimp, Photoshop, Illustrator, Balsamiq. When I'm building a project, I use primarily use CursorAI but when I'm learning something new, I use VS Code with completions turned off. I love Obsidian and Anki as learning tools.
+
 ### Favorite Podcasts:
 I enjoy learning while I am driving or on a run and some of my favorites are "Acquired", "Lex Fridman", "Akimbo", "Revisionist History", and "Command Line Heroes"
+
 ### Personal interests:
 Besides computers, I love: snowboarding, skiing, water sports, traveling, mountains. I love the mountains so I made the logo/icon for my portfolio a snowy mountain top. I enjoy building things and fixing things. I especially enjoy carpentry. I a fan of youth sports, running, cooking, connecting with friends.
