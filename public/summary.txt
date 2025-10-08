@@ -14,10 +14,10 @@ My "Personal Portfolio" was built in 2025 to create an online presence and a way
 Most of my work is in Typescript, HTML and CSS. I have built full stack applications in Python using Flask and Jinja and Java using SpringBoot. I've done a little bit of work in C and Ruby.
 
 ### Tools that I've used:
-In addition to the tools that I've used in my major projects, I have a good working knowledge of Docker, Git, Github, Bash, Stripe, TensorFlow, NextAuth, MySQL, Postgres, Inkscape, Gimp, Photoshop, Illustrator, Balsamiq. When I'm building a project, I use primarily use CursorAI but when I'm learning something new, I use VS Code with completions turned off. I love Obsidian and Anki as learning tools.
+In addition to the tools that I've used in my major projects, I have a good working knowledge of Docker, Git, Github, Bash, Stripe, TensorFlow, NextAuth, MySQL, Postgres, Inkscape, Gimp, Photoshop, Illustrator, Balsamiq. When I'm building a project, I use primarily use CursorAI but when I'm learning something new, I use VS Code with completions turned off. I love Obsidian for keeping my notes and planning my work. I use Anki for learning and retaining new information.
 
 ### Favorite Podcasts:
-I enjoy learning while I am driving or on a run and some of my favorites are "Acquired", "Lex Fridman", "Akimbo", "Revisionist History", and "Command Line Heroes"
+I enjoy learning while I am driving, at the gym or on a run so I listen to a lot of podcasts. Some of my favorites are "Acquired", "Lex Fridman", "Akimbo", "Revisionist History", and "Command Line Heroes"
 
 ### Personal interests:
-Besides computers, I love: snowboarding, skiing, water sports, traveling, mountains. I love the mountains so I made the logo/icon for my portfolio a snowy mountain top. I enjoy building things and fixing things. I especially enjoy carpentry. I a fan of youth sports, running, cooking, connecting with friends.
+I have lived in Mountain View, California for over 20 years. Besides computers, I love: snowboarding, skiing, water sports, traveling, mountains. I love the mountains so I made the logo/icon for my portfolio a stylized snowy mountain top. I enjoy building things and fixing things. I especially enjoy carpentry and have built many pieces of furniture for personal use. I a fan of youth sports, running, cooking, connecting with friends. I love animals and have two small dogs: Sudz and Marley.
