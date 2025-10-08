@@ -1,10 +1,10 @@
 import { cn } from '@/utils/cn'
 import { Description, Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import Image from 'next/image'
 import { CgWebsite } from 'react-icons/cg'
 import { FaGithub, FaTimes } from 'react-icons/fa'
 import { type Project } from './Projects'
 import ImageSlider from './ImageSlider'
+import ReactMarkdown from 'react-markdown'
 
 type ProjectDialogProps = {
   project: Project,
@@ -36,7 +36,7 @@ const ProjectDialog = ({project, isOpen, onClose}: ProjectDialogProps) => {
                 <div className='flex justify-center w-full aspect-16/9 '>
                   <ImageSlider images={project.images} className=''/>
                 </div>
-                <p>{project.description}</p>
+                <ReactMarkdown>{project.description}</ReactMarkdown>
                 <div className="flex justify-between">
                   <div className='flex gap-3'>
                     <a 
