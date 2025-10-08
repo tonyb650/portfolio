@@ -30,10 +30,10 @@ const ProjectDialog = ({project, isOpen, onClose}: ProjectDialogProps) => {
                   <FaTimes className="w-6 h-6" />
                 </button>
               </div>
-              <div className='px-3 pb-2  sm:px-7 space-y-4'>
+              <div className='px-3 pb-2 sm:px-7 space-y-4'>
                 <DialogTitle className="font-bold text-2xl sm:text-4xl uppercase  text-center">{project.title}</DialogTitle>
                 <Description className={"font-bold text-center"}>{project.shortDescription}</Description>
-                <div className='flex justify-center w-full aspect-16/9 '>
+                <div className='flex justify-center w-full xl:max-w-5xl xl:mx-auto aspect-16/9'>
                   <ImageSlider images={project.images} className=''/>
                 </div>
                 <ReactMarkdown>{project.description}</ReactMarkdown>
