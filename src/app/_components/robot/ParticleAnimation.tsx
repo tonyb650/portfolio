@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useMemo } from "react";
 
 type ParticleAnimationOptions = {
   particleColor: string,
@@ -33,10 +33,10 @@ const ParticleAnimation = ({ containerRef, customOptions, speed = 1}: ParticleAn
   const wRef = useRef(0);
   const hRef = useRef(0);
 
-  const options: ParticleAnimationOptions = {
+  const options: ParticleAnimationOptions = useMemo(()=> ({
     ...DEFAULT_OPTIONS,
     ...customOptions,
-  }
+  }), [customOptions])
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -103,7 +103,7 @@ const ParticleAnimation = ({ containerRef, customOptions, speed = 1}: ParticleAn
       cancelAnimationFrame(animationId.current!);
       window.removeEventListener("resize", handleResize);
     };
-  }, [options])
+  }, [options, containerRef, speed])
 
   /* This useEffect is primarily for speed changes */
   useEffect(() => {
