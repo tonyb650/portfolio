@@ -42,7 +42,10 @@
     "coverImage": "calendar.png",
     "images": [
       { "url": "/images/calendify/calendify_landing_screenshot.png", "alt": "Screenshot of Landing Page" },
-      { "url": "/images/calendify/calendify_calendar_screenshot.png", "alt": "Screenshot of Calendar" }
+      { "url": "/images/calendify/calendify_register_screenshot.png", "alt": "Screenshot of User Registration" },
+      { "url": "/images/calendify/calendify_new_event_screenshot.png", "alt": "Screenshot of New Event Form" },
+      { "url": "/images/calendify/calendify_weekly_screenshot.png", "alt": "Screenshot of Weekly Calendar" },
+      { "url": "/images/calendify/calendify_daily_screenshot.png", "alt": "Screenshot of Daily Calendar" }
     ],
     "title": "Calendify",
     "shortDescription": "Using TensorFlow and Machine Learning to optimally schedule your calendar.",
