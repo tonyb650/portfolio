@@ -1,21 +1,24 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server'
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const RESEND_API_KEY = process.env.RESEND_API_KEY
 const MAIL_TO = process.env.MAIL_TO
 
 if (!RESEND_API_KEY || !MAIL_TO) {
-  throw new Error('Environment variables not set.');
+  throw new Error('Environment variables not set.')
 }
 
 export async function POST(req: NextRequest) {
-  let body;
+  let body
   try {
-    body = await req.json();
+    body = await req.json()
   } catch {
-    return NextResponse.json({ success: false, error: 'Invalid JSON.' }, { status: 400 });
+    return NextResponse.json(
+      { success: false, error: 'Invalid JSON.' },
+      { status: 400 }
+    )
   }
 
-  const { name, email, message } = body || {};
+  const { name, email, message } = body || {}
 
   if (
     typeof name !== 'string' ||
@@ -25,7 +28,10 @@ export async function POST(req: NextRequest) {
     !email.trim() ||
     !message.trim()
   ) {
-    return NextResponse.json({ success: false, error: 'Missing or invalid fields.' }, { status: 400 });
+    return NextResponse.json(
+      { success: false, error: 'Missing or invalid fields.' },
+      { status: 400 }
+    )
   }
 
   try {
@@ -33,31 +39,39 @@ export async function POST(req: NextRequest) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
+        Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
         from: 'Portfolio <noreply@tonybrierly.com>',
         to: [MAIL_TO],
-        subject: "Incoming message from portfolio contact form",    // Subject line
+        subject: 'Incoming message from portfolio contact form', // Subject line
         text: `Incoming message from ${name}. Email address is ${email}. Message is: ${message}`,
         html: `Incoming message from ${name}. Email address is ${email}. Message is: ${message}`,
       }),
-    });
-  
+    })
+
     if (!res.ok) {
-      let errorDetail = '';
+      let errorDetail = ''
       try {
-        const errorJson = await res.json();
-        errorDetail = errorJson.error || errorJson.message || '';
+        const errorJson = await res.json()
+        errorDetail = errorJson.error || errorJson.message || ''
       } catch {}
-      throw new Error(`${res.status}${errorDetail ? ': ' + errorDetail : ''}`);
+      throw new Error(`${res.status}${errorDetail ? ': ' + errorDetail : ''}`)
     }
-    return NextResponse.json({ success: true });
-    
+    return NextResponse.json({ success: true })
   } catch (error) {
     if (error instanceof Error && error.message.startsWith('429')) {
-      return NextResponse.json({ success: false, error: "Too many requests." }, { status: 429 });
+      return NextResponse.json(
+        { success: false, error: 'Too many requests.' },
+        { status: 429 }
+      )
     }
-    return NextResponse.json({ success: false, error: error instanceof Error ? error.message : 'Unknown error.' }, { status: 500 });
+    return NextResponse.json(
+      {
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown error.',
+      },
+      { status: 500 }
+    )
   }
 }

@@ -1,19 +1,19 @@
-import { cn } from "@/utils/cn";
-import type { PropsWithChildren } from "react";
+import { cn } from '@/utils/cn'
+import type { PropsWithChildren } from 'react'
 
 type ChatHeaderProps = {
-  className?: string;
-};
+  className?: string
+}
 
 const ChatHeader = ({
   children,
-  className
+  className,
 }: PropsWithChildren<ChatHeaderProps>) => {
   return (
-    <div className={cn( "rounded-t-2xl text-center py-1", className )}>
+    <div className={cn('rounded-t-2xl py-1 text-center', className)}>
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default ChatHeader;
+export default ChatHeader

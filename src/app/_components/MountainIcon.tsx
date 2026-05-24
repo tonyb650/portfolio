@@ -1,17 +1,17 @@
-import { cn } from "@/utils/cn";
+import { cn } from '@/utils/cn'
 
 type SVGProps = {
-  size?: number;
-  className?: string;
-};
+  size?: number
+  className?: string
+}
 const MountainIcon = ({
-  className ,
+  className,
 
-  size=24
+  size = 24,
 }: SVGProps) => {
   return (
     <svg
-      className={cn("bg-white rounded-sm text-[#0b3c5d]",className)}
+      className={cn('rounded-sm bg-white text-[#0b3c5d]', className)}
       version="1.1"
       id="svg1"
       width={size}
@@ -34,7 +34,7 @@ const MountainIcon = ({
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default MountainIcon;
+export default MountainIcon

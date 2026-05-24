@@ -1,13 +1,12 @@
-import type { Metadata, Viewport } from "next";
-import { Analytics } from '@vercel/analytics/next';
-import { Inter } from 'next/font/google';
-import "./globals.css";
-
+import type { Metadata, Viewport } from 'next'
+import { Analytics } from '@vercel/analytics/next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
 const inter = Inter({
-  subsets: ['latin'], 
-  display: 'swap',    // Helps with flash of unstyled text
-});
+  subsets: ['latin'],
+  display: 'swap', // Helps with flash of unstyled text
+})
 
 /*
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -18,30 +17,28 @@ const inter = Inter({
 */
 
 export const metadata: Metadata = {
-  title: "Tony Brierly Portfolio",
-  description: "Tony Brierly Portfolio",
+  title: 'Tony Brierly Portfolio',
+  description: 'Tony Brierly Portfolio',
   // viewport: "width=device-width, initial-scale=1, interactive-widget=resizes-content",
-};
+}
 
 export const viewport: Viewport = {
-  width: "device-width",
+  width: 'device-width',
   initialScale: 1,
-  interactiveWidget: "resizes-content",
-};
+  interactiveWidget: 'resizes-content',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} antialiased`}
-      >
+      <body className={`${inter.className} antialiased`}>
         {children}
-        <Analytics/>
+        <Analytics />
       </body>
     </html>
-  );
+  )
 }

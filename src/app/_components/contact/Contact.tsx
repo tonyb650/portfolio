@@ -1,15 +1,18 @@
-import ContactForm from "./ContactForm";
+import ContactForm from './ContactForm'
 
 const Contact = ({
-  ref
+  ref,
 }: {
-  ref: React.RefObject<HTMLDivElement | null> | null;
+  ref: React.RefObject<HTMLDivElement | null> | null
 }) => {
   return (
-    <div ref={ref} className="max-w-7xl mx-auto h-[calc(dvh-48px)] pt-26 pb-14 px-5  gap-4 ">
-      <ContactForm/>
+    <div
+      ref={ref}
+      className="mx-auto h-[calc(dvh-48px)] max-w-7xl gap-4 px-5 pt-26 pb-14"
+    >
+      <ContactForm />
     </div>
-  );
+  )
 }
 
 export default Contact

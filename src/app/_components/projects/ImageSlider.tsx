@@ -62,7 +62,7 @@ const ImageSlider = ({ images, className }: ImageSliderProps) => {
           className="fill-black stroke-white"
         />
       </button>
-      <div className="absolute bottom-0.5 left-1/2 flex -translate-1/2 gap-1 bg-white/50 p-1 rounded-full shadow-sm shadow-black">
+      <div className="absolute bottom-0.5 left-1/2 flex -translate-1/2 gap-1 rounded-full bg-white/50 p-1 shadow-sm shadow-black">
         {images.map((_, i) => (
           <button
             key={i}

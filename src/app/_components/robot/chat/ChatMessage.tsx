@@ -7,80 +7,78 @@ import { FaCheck, FaClipboard, FaUser } from 'react-icons/fa'
 //   type: "outgoing" | "incoming" | "working",
 // }
 
-type CopyIconState = "hide" | "clip" | "check"// Three states hide = don't show, clip = show clipboard Icon, check = show check Icon
-
+type CopyIconState = 'hide' | 'clip' | 'check' // Three states hide = don't show, clip = show clipboard Icon, check = show check Icon
 
 type ChatMessageWrapperProps = {
-  role: "system" | "user" | "assistant"
+  role: 'system' | 'user' | 'assistant'
 }
 
-export const ChatMessageWrapper = ({ children, role }: PropsWithChildren<ChatMessageWrapperProps>) => {
-  const [copyIcon, setCopyIcon] = useState<CopyIconState>("hide") 
+export const ChatMessageWrapper = ({
+  children,
+  role,
+}: PropsWithChildren<ChatMessageWrapperProps>) => {
+  const [copyIcon, setCopyIcon] = useState<CopyIconState>('hide')
 
-    const copyToClipboard = async (text: string | undefined) => {
+  const copyToClipboard = async (text: string | undefined) => {
     try {
-      await navigator.clipboard.writeText(text || "")
-      setCopyIcon("check")
+      await navigator.clipboard.writeText(text || '')
+      setCopyIcon('check')
     } catch (err) {
       console.error(err)
     }
   }
 
+  if (role === 'assistant') {
+    return (
+      <div className="mr-14 flex items-end gap-2 py-2 text-left">
+        <MountainIcon
+          size={30}
+          className="mx-1 shrink-0 rounded-full bg-white p-0.5"
+        />
 
-  if (role === "assistant") {
-    return (
-      <div className='flex py-2 mr-14 text-left items-end gap-2'>
-        <MountainIcon size={30} className="mx-1 bg-white rounded-full p-0.5 shrink-0" />
-        
-        <div className={` bg-white rounded-r-xl rounded-t-xl self-center break-words`}
-          onMouseEnter={() => setCopyIcon("clip")}
-          onMouseLeave={() => setCopyIcon("hide")}
+        <div
+          className={`self-center rounded-t-xl rounded-r-xl bg-white break-words`}
+          onMouseEnter={() => setCopyIcon('clip')}
+          onMouseLeave={() => setCopyIcon('hide')}
         >
-          {
-            copyIcon !== "hide" &&
-            <div className="absolute bg-white p-1 shadow-sm rounded-md">
-              { 
-                copyIcon === "clip" ? 
-                <FaClipboard 
+          {copyIcon !== 'hide' && (
+            <div className="absolute rounded-md bg-white p-1 shadow-sm">
+              {copyIcon === 'clip' ? (
+                <FaClipboard
                   className="hover:cursor-pointer"
-                  onClick={() => copyToClipboard("message")}
+                  onClick={() => copyToClipboard('message')}
                 />
-                : 
-                <FaCheck/> 
-              }
+              ) : (
+                <FaCheck />
+              )}
             </div>
-          }
-            <div className="px-3 py-2 text-left whitespace-normal">
-              {children}
-            </div>
-        </div>   
-      </div>
-    )
-  } else if (role === "user"){
-    return (
-      <div className="flex justify-end items-end gap-2">
-        <div className={`ml-14 bg-accent text-white self-center rounded-t-xl rounded-l-xl justify-end break-words`}>
+          )}
           <div className="px-3 py-2 text-left whitespace-normal">
             {children}
           </div>
         </div>
-        <FaUser size={30} className='bg-[#062136] text-highlight rounded-full p-1 mx-1 shrink-0' />
       </div>
-    );
+    )
+  } else if (role === 'user') {
+    return (
+      <div className="flex items-end justify-end gap-2">
+        <div
+          className={`bg-accent ml-14 justify-end self-center rounded-t-xl rounded-l-xl break-words text-white`}
+        >
+          <div className="px-3 py-2 text-left whitespace-normal">
+            {children}
+          </div>
+        </div>
+        <FaUser
+          size={30}
+          className="text-highlight mx-1 shrink-0 rounded-full bg-[#062136] p-1"
+        />
+      </div>
+    )
   }
 
   return null
-};
-
-
-
-
-
-
-
-
-
-
+}
 
 // type ChatMessageProps = {
 //   message: UIMessage<unknown, UIDataTypes, UITools>,
@@ -98,35 +96,16 @@ export const ChatMessageWrapper = ({ children, role }: PropsWithChildren<ChatMes
 
 // export default ChatMessage
 
-
-
-
 /********************/
 /*** User Message ***/
 /********************/
-
-
 
 /*********************/
 /*** MODEL Message ***/
 /*********************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // const ModelMessage = ({ parts }: { parts: UIMessagePart<UIDataTypes, UITools>[] }) => {
-//   // const [copyIcon, setCopyIcon] = useState<CopyIconState>("hide") 
+//   // const [copyIcon, setCopyIcon] = useState<CopyIconState>("hide")
 
 //   // const copyToClipboard = async (text: string | undefined) => {
 //   //   try {
@@ -140,7 +119,6 @@ export const ChatMessageWrapper = ({ children, role }: PropsWithChildren<ChatMes
 //   return (
 //       <div className='flex py-2 mr-14 text-left items-end'>
 //         <MountainIcon size={30} className="mx-1 bg-white rounded-full p-0.5 shrink-0" />
-        
 
 //         <div className={` bg-white rounded-r-xl rounded-t-xl self-center break-words`}
 //           // onMouseEnter={() => setCopyIcon("clip")}
@@ -149,14 +127,14 @@ export const ChatMessageWrapper = ({ children, role }: PropsWithChildren<ChatMes
 //           {/* {
 //             copyIcon !== "hide" &&
 //             <div className="absolute bg-white p-1 shadow-sm rounded-md">
-//               { 
-//                 copyIcon === "clip" ? 
-//                 <FaClipboard 
+//               {
+//                 copyIcon === "clip" ?
+//                 <FaClipboard
 //                   className="hover:cursor-pointer"
 //                   onClick={() => copyToClipboard("message")}
 //                 />
-//                 : 
-//                 <FaCheck/> 
+//                 :
+//                 <FaCheck/>
 //               }
 //             </div>
 //           } */}
@@ -170,47 +148,11 @@ export const ChatMessageWrapper = ({ children, role }: PropsWithChildren<ChatMes
 //           })}</div>
 
 //           </div>
-//         </div>   
-        
+//         </div>
+
 //       </div>
 //   )
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // /************************/
 // /** Markdown Overrides **/
@@ -254,7 +196,6 @@ export const ChatMessageWrapper = ({ children, role }: PropsWithChildren<ChatMes
 // // const PRE = (  {children}: PropsWithChildren) => {
 // //   return <pre className="">{children}</pre>;
 // // };
-
 
 // const WorkingMessage = () => {
 //   return (

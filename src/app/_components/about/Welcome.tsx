@@ -1,17 +1,17 @@
 export type SVGProps = {
-  width?: number | string,
-  height?: number | string,
-  viewBox?: string,
-  className?: string,
+  width?: number | string
+  height?: number | string
+  viewBox?: string
+  className?: string
 }
 
-const Welcome = ({viewBox="0 0 1892 382", className}: SVGProps) => {
+const Welcome = ({ viewBox = '0 0 1892 382', className }: SVGProps) => {
   return (
     <svg
       viewBox={viewBox}
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      className={className ||""}
+      className={className || ''}
     >
       <path
         stroke="white"
@@ -179,11 +179,25 @@ const Welcome = ({viewBox="0 0 1892 382", className}: SVGProps) => {
             1862.85,322.81 1860.81,334.88 1852.00,338.26
             1837.37,343.87 1826.37,323.44 1842.00,314.85 Z"
       >
-        <animate id="drawLine" attributeName="stroke-dashoffset" begin="0" from="2225" dur="2.5s" to="0"/>
-        <animate begin="drawLine.end" attributeName="fill" from="transparent" to="white" dur="1s" fill="freeze"/>
+        <animate
+          id="drawLine"
+          attributeName="stroke-dashoffset"
+          begin="0"
+          from="2225"
+          dur="2.5s"
+          to="0"
+        />
+        <animate
+          begin="drawLine.end"
+          attributeName="fill"
+          from="transparent"
+          to="white"
+          dur="1s"
+          fill="freeze"
+        />
       </path>
     </svg>
-  );
-};
+  )
+}
 
-export default Welcome;
+export default Welcome

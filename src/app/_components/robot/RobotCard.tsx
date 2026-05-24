@@ -1,9 +1,7 @@
-import RobotArt from "./RobotArt"
+import RobotArt from './RobotArt'
 
 const RobotCard = () => {
-  return (
-    <RobotArt/>
-  )
+  return <RobotArt />
 }
 
 export default RobotCard

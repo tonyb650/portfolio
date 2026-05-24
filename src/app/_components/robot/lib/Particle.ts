@@ -7,7 +7,6 @@
 
 // const rgb = (rgbString: string) => rgbString.match(/\d+/g);
 
-
 // export class Particle {
 //     wRef: React.RefObject<number>
 //     hRef: React.RefObject<number>

@@ -1,33 +1,33 @@
-import Arc from "../Arc";
-import ProjectCard from "./ProjectCard";
-import ProjectGrid from "./ProjectGrid";
-import projects from "./data/projects.json";
+import Arc from '../Arc'
+import ProjectCard from './ProjectCard'
+import ProjectGrid from './ProjectGrid'
+import projects from './data/projects.json'
 
 export type Image = {
-  url: string,
-  alt: string,
+  url: string
+  alt: string
 }
 
 export type Project = {
-  coverImage: string;
-  images: Image[];
-  title: string;
-  shortDescription: string;
-  description: string;
-  url?: string;
-  gitHub?: string;
-  light?: boolean;
-};
+  coverImage: string
+  images: Image[]
+  title: string
+  shortDescription: string
+  description: string
+  url?: string
+  gitHub?: string
+  light?: boolean
+}
 
 const Projects = ({
-  ref
+  ref,
 }: {
-  ref: React.RefObject<HTMLDivElement | null> | null;
+  ref: React.RefObject<HTMLDivElement | null> | null
 }) => {
   return (
     <div ref={ref} className="">
       <Arc openDown={true} className="text-bgcolor" />
-      <div className="max-w-7xl mx-auto min-h-[85dvh] md:min-h-[75dvh] flex items-center justify-center">
+      <div className="mx-auto flex min-h-[85dvh] max-w-7xl items-center justify-center md:min-h-[75dvh]">
         <ProjectGrid>
           {(projects as Project[]).map((project, index) => (
             <ProjectCard key={index} project={project} />
@@ -36,7 +36,7 @@ const Projects = ({
       </div>
       <Arc openDown={false} className="text-bgcolor" />
     </div>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects
