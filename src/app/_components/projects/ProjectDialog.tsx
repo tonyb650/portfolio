@@ -1,4 +1,3 @@
-import { cn } from '@/utils/cn'
 import {
   Description,
   Dialog,
@@ -11,14 +10,13 @@ import { FaGithub, FaTimes } from 'react-icons/fa'
 import { type Project } from './Projects'
 import ImageSlider from './ImageSlider'
 import ReactMarkdown from 'react-markdown'
+import Button from '../ui/Button'
 
 type ProjectDialogProps = {
   project: Project
   isOpen: boolean
   onClose: () => void
 }
-
-// TODO Hover & Active state for buttons
 
 const ProjectDialog = ({ project, isOpen, onClose }: ProjectDialogProps) => {
   return (
@@ -60,40 +58,32 @@ const ProjectDialog = ({ project, isOpen, onClose }: ProjectDialogProps) => {
               <ReactMarkdown>{project.description}</ReactMarkdown>
               <div className="flex justify-between">
                 <div className="flex gap-3">
-                  <a
+                  <Button
+                    as="a"
                     href={project.url}
+                    disabled={!project.url}
                     target="_blank"
-                    className={cn(
-                      'bg-text text-bgcolor border-accent flex items-center gap-2 rounded-lg border px-2 py-1 shadow shadow-black/50 sm:px-3',
-                      {
-                        'text-accent cursor-default opacity-30': !project.url,
-                      }
-                    )}
                   >
                     <CgWebsite className="hidden sm:inline" />
                     Live Demo
-                  </a>
-                  <a
+                  </Button>
+                  <Button
+                    as="a"
                     href={project.gitHub}
+                    disabled={!project.gitHub}
                     target="_blank"
-                    className={cn(
-                      'bg-text text-bgcolor border-accent flex items-center gap-2 rounded-lg border px-2 py-1 shadow shadow-black/50 sm:px-3',
-                      {
-                        'text-accent cursor-default opacity-30':
-                          !project.gitHub,
-                      }
-                    )}
                   >
                     <FaGithub className="hidden sm:inline" />
                     GitHub
-                  </a>
+                  </Button>
                 </div>
-                <button
-                  className="text-text border-text cursor-pointer rounded-lg border px-2 py-1 shadow shadow-black sm:px-8"
+                <Button
+                  variant="outline"
+                  className="sm:px-8"
                   onClick={onClose}
                 >
                   Close
-                </button>
+                </Button>
               </div>
             </div>
           </DialogPanel>

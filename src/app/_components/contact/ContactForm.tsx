@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Button from '../ui/Button'
 
 const INITIAL_FORM_DATA = { name: '', email: '', message: '' }
 
@@ -90,13 +91,13 @@ export default function ContactForm() {
         rows={20}
       />
 
-      <button
+      <Button
         type="submit"
         disabled={isLoading}
-        className="bg-text text-bgcolor rounded px-8 py-2 shadow-lg"
+        className="flex w-36 justify-center"
       >
         {isLoading ? 'Sending...' : 'Send'}
-      </button>
+      </Button>
 
       {isSent && <p className="text-green-600">Message sent!</p>}
       {errorMessage && <p className="text-red-600">{errorMessage}</p>}
