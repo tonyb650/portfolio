@@ -17,8 +17,31 @@ const inter = Inter({
 */
 
 export const metadata: Metadata = {
-  title: 'Tony Brierly Portfolio',
-  description: 'Tony Brierly Portfolio',
+  metadataBase: new URL('https://tonybrierly.com'),
+  title: 'Tony Brierly Personal Website',
+  description: 'Get to know me and my software engineering work',
+  openGraph: {
+    title: 'Tony Brierly Personal Website',
+    description: 'Get to know me and my software engineering work',
+    url: 'https://tonybrierly.com',
+    siteName: 'Tony Brierly Personal Website',
+    images: [
+      {
+        url: '/images/og_image.png',
+        width: 1000,
+        height: 500,
+        alt: 'Tony Brierly Personal Website',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tony Brierly Personal Website',
+    description: 'Get to know me and my software engineering work',
+    images: ['/images/og_image.png'],
+  },
   // viewport: "width=device-width, initial-scale=1, interactive-widget=resizes-content",
 }
 

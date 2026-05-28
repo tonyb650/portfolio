@@ -7,6 +7,7 @@ import RobotMe from './_components/robot/RobotMe'
 import Contact from './_components/contact/Contact'
 import Navbar from './_components/nav/Navbar'
 import Button from './_components/ui/Button'
+import { useRef } from 'react'
 // import ScrollToTop from "./_components/ScrollToTop";
 
 export type RefContextType = {
@@ -18,8 +19,6 @@ export type RefContextType = {
 
 export const RefContext = createContext<RefContextType | null>(null)
 
-import { useRef } from 'react'
-import { cn } from '@/utils/cn'
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement | null>(null)
