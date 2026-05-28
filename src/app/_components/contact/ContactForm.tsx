@@ -46,7 +46,7 @@ export default function ContactForm() {
   return (
     <motion.form
       onSubmit={handleSubmit}
-      className="from-primary to-accent flex h-[calc(100dvh-200px)] w-full flex-col items-center space-y-5 rounded-2xl bg-radial-[50%_20%] p-5"
+      className="from-primary to-accent flex h-[calc(100dvh-180px)] w-full flex-col items-center space-y-5 rounded-2xl bg-radial-[50%_20%] p-5"
       initial={{ opacity: 0, x: -300 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.7 }}

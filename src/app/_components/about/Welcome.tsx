@@ -17,6 +17,7 @@ const Welcome = ({ viewBox = '0 0 1892 382', className }: SVGProps) => {
         stroke="white"
         strokeWidth={2.5}
         strokeDasharray={2225}
+        strokeDashoffset={2225}
         fill="none"
         d="M 673.00,52.00
           C 673.00,52.00 686.00,52.00 686.00,52.00

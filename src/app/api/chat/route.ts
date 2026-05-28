@@ -12,17 +12,6 @@ import {
 import { z } from 'zod'
 import sendPush from '@/utils/pushNotification'
 
-//! Pick up here:
-// Cosden: https://www.youtube.com/watch?v=y4IMq43KvRw
-//https://ai-sdk.dev/cookbook/next/markdown-chatbot-with-memoization
-// and
-//https://vercel.com/docs/vercel-firewall/vercel-waf/rate-limiting
-
-// Explains tool calling
-// https://www.youtube.com/watch?v=mojZpktAiYQ
-
-export const maxDuration = 30
-
 export async function POST(req: NextRequest) {
   try {
     const { messages }: { messages: UIMessage[] } = await req.json()

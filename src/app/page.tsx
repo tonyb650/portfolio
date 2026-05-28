@@ -6,6 +6,7 @@ import Projects from './_components/projects/Projects'
 import RobotMe from './_components/robot/RobotMe'
 import Contact from './_components/contact/Contact'
 import Navbar from './_components/nav/Navbar'
+import Button from './_components/ui/Button'
 // import ScrollToTop from "./_components/ScrollToTop";
 
 export type RefContextType = {
@@ -27,16 +28,10 @@ export default function Home() {
   const contactRef = useRef<HTMLDivElement | null>(null)
 
   return (
-    <RefContext.Provider
-      value={{ aboutRef, projectsRef, robotRef, contactRef }}
-    >
+    <RefContext.Provider value={{ aboutRef, projectsRef, robotRef, contactRef }}>
       {/* <ScrollToTop /> */}
       <div className="flex flex-col">
-        <header
-          className={cn(
-            'bg-accent from-accent to-primary fixed top-0 z-10 w-full shadow-sm sm:bg-radial-[at_75%_00%]'
-          )}
-        >
+        <header className="bg-accent from-accent to-primary fixed top-0 z-10 w-full shadow-sm sm:bg-radial-[at_75%_00%]">
           <div className="mx-auto max-w-7xl">
             <Navbar />
           </div>
@@ -55,8 +50,13 @@ export default function Home() {
           </div>
         </main>
 
-        <footer className="text-text bg-bgcolor p-1 text-center">
-          tonybrierly.com
+        <footer className="text-text bg-bgcolor flex justify-center pb-5">
+          <Button as="a" variant="ghost" href="https://www.linkedin.com/in/tony-brierly">
+            LinkedIn
+          </Button>
+          <Button as="a" variant="ghost" href="https://github.com/tonyb650">
+            GitHub
+          </Button>
         </footer>
       </div>
     </RefContext.Provider>
